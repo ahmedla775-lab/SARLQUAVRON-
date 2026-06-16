@@ -4,88 +4,350 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QUAVRON - نصنع المستقبل</title>
+  
+  <!-- استدعاء خط Cairo وتأثيرات AOS الحركية فخمة -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com" />
+  <link rel="stylesheet" href="https://cloudflare.com">
+
   <style>
+    /* المتغيرات والتنسيقات الأساسية المستوحاة من Xiaomi/BYD */
+    :root {
+      --bg-dark: #0a0f1d;
+      --card-dark: #12192c;
+      --neon-blue: #0071e3;
+      --neon-cyan: #00f2fe;
+      --text-main: #ffffff;
+      --text-muted: #a0aec0;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #F5F5F5;
-      color: #333;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* شريط التنقل العلوي الفخم (Navbar) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .navbar .logo-container img {
+      height: 45px;
+      display: block;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--neon-cyan);
+    }
+
+    /* قسم البطل السينمائي (Hero Section) كموقع BYD */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      background: radial-gradient(circle at center, rgba(0, 113, 223, 0.15) 0%, var(--bg-dark) 70%);
+      position: relative;
+    }
+
+    .hero-logo {
+      max-width: 450px;
+      width: 100%;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 25px rgba(0, 113, 223, 0.4));
+    }
+
+    .hero p {
+      font-size: 24px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-top: 0;
+      margin-bottom: 40px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* الزر المتوهج التفاعلي */
+    .premium-btn {
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-cyan));
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(0, 113, 227, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .premium-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(0, 242, 254, 0.7);
+    }
+
+    /* أقسام المحتوى العامة */
+    section {
+      padding: 100px 8% 60px 8%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 60px;
+      background: linear-gradient(120deg, #fff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--neon-cyan);
+      margin: 15px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    /* بطاقة قسم "عن الشركة" المشابه للاندينج بيج */
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      background: var(--card-dark);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .about-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .about-image img, .careers-image img {
+      width: 100%;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+
+    /* نظام شبكة الخدمات المتطورة (Services Grid) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--card-dark);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--neon-blue);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 242, 254, 0.2);
+      box-shadow: 0 10px 25px rgba(0, 113, 227, 0.15);
+    }
+
+    .service-card:hover::before {
+      background: var(--neon-cyan);
+      width: 6px;
+    }
+
+    .service-card i {
+      font-size: 35px;
+      color: var(--neon-cyan);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      margin: 0 0 15px 0;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      margin: 0;
+      font-size: 15px;
       line-height: 1.6;
     }
 
-    header {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    /* قسم التوظيف */
+    .careers-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      background: var(--card-dark);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
     }
 
-    header <img src="https://raw.githubusercontent.com/ahmedla775-lab/SARLQUAVRON-/main/file_00000000693871f5a1cdc315f3bb6684_1.png" alt="QUAVRON Logo" class="logo">
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    .careers-text h3 {
+      font-size: 24px;
+      color: var(--neon-cyan);
+      margin-top: 0;
     }
 
-    section img {
-      width: 100%;
-      margin-top: 20px;
-      border-radius: 10px;
+    .careers-text p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.8;
     }
 
-    h2 {
-      color: #003366;
+    .email-highlight {
+      display: inline-block;
+      background: rgba(0, 113, 227, 0.15);
+      border: 1px dashed var(--neon-blue);
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: #fff;
+      font-family: monospace;
+      font-size: 18px;
+      margin: 15px 0;
     }
 
+    /* تذييل الصفحة (Footer) */
     footer {
-      background-color: #003366;
-      color: white;
+      background-color: #05070d;
+      color: var(--text-muted);
       text-align: center;
-      padding: 15px;
+      padding: 30px;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* تجاوب الموقع الكامل مع جميع أنواع الهواتف والشاشات */
+    @media (max-width: 900px) {
+      .navbar { padding: 15px 5%; }
+      .nav-links { display: none; } /* يفضل دمج زر قائمة لاحقاً */
+      .hero-logo { max-width: 300px; }
+      .hero p { font-size: 18px; }
+      .about-container, .careers-container { grid-template-columns: 1fr; gap: 30px; padding: 25px; }
+      .section-title { font-size: 28px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    https://raw.githubusercontent.com/ahmedla775-lab/SARLQUAVRON-/refs/heads/main/file_00000000b52c71fdb930a6ef9c5dca83.png
-    <p>نصنع المستقبل عبر الهندسة والابتكار التكنولوجي</p>
+
+  <!-- شريط التنقل العلوي -->
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="https://githubusercontent.com" alt="QUAVRON Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#about">عن الشركة</a></li>
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#careers">التوظيف</a></li>
+    </ul>
   </header>
 
-  <section class="about">
-    <h2>عن الشركة</h2>
-    <p>
-      QUAVRON متخصصة في البحث والتطوير، الصناعة، الحلول الرقمية، وتأهيل الكفاءات الشابة.
-      نسعى لأن نكون شريكاً قوياً في تنمية اقتصاد الوطن من خلال الابتكار والإبداع التقني.
-    </p>
-    <img src="https://raw.githubusercontent.com/ahmedla775-lab/SARLQUAVRON-/refs/heads/main/file_00000000693871f5a1cdc315f3bb6684_1.png" alt="Industry">
-
-  <section class="services">
-    <h2>الخدمات</h2>
-    <ul>
-      <li>تصميم وتطوير حلول هندسية وإلكترونية</li>
-      <li>صناعة نماذج أولية ومركبات تجريبية</li>
-      <li>تطوير برمجيات وأنظمة أتمتة</li>
-      <li>استشارات هندسية وتقنية للشركات والمؤسسات</li>
-      <li>تأهيل وتدريب الكفاءات العلمية</li>
-      <li>صيانة وإدارة المعدات الصناعية</li>
-    </ul>
-    <img src="https://via.placeholder.com/800x400.png?text=Innovation" alt="Innovation">
+  <!-- قسم البطل الترحيبي السينمائي -->
+  <section id="hero" class="hero">
+    <img src="https://githubusercontent.com" alt="QUAVRON Text Logo" class="hero-logo" data-aos="zoom-in">
+    <p data-aos="fade-up" data-aos-delay="300">نصنع المستقبل عبر الهندسة والابتكار التكنولوجي</p>
+    <a href="#services" class="premium-btn" data-aos="fade-up" data-aos-delay="500">استكشف خدماتنا التقنية</a>
   </section>
 
-  <section class="careers">
-    <h2>التوظيف</h2>
-    <p>نرحب بالكفاءات الشابة عبر البريد الإلكتروني: <strong>sarlquavron@gmail.com</strong></p>
-    <p>المسار يتضمن دراسة الملف، التقييم التقني، المقابلات، والتأهيل الداخلي قبل التوظيف النهائي.</p>
-    <img src="https://via.placeholder.com/800x400.png?text=Team" alt="Team">
+  <!-- قسم عن الشركة -->
+  <section id="about">
+    <h2 class="section-title" data-aos="fade-up">عن الشركة</h2>
+    <div class="about-container" data-aos="fade-up">
+      <div class="about-text">
+        <p>
+          <strong>QUAVRON</strong> هي منشأة رائدة متخصصة في مجالات البحث والتطوير، الصناعات المتقدمة، الحلول الرقمية، وتأهيل الكفاءات الشابة الحيوية. 
+        </p>
+        <p>
+          نحن نسعى جاهدين لأن نكون شريكاً استراتيجياً قوياً وفعالاً في تنمية ودعم اقتصاد الوطن من خلال غرس قيم الابتكار والإبداع التقني في كل قطاع نعمل به.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="https://githubusercontent.com" alt="Industry Engineering">
+      </div>
+    </div>
   </section>
 
-  <footer>
-    &copy; 2026 QUAVRON – جميع الحقوق محفوظة
-  </footer>
-</body>
-</html>
+  <!-- قسم الخدمات المطور بنظام الـ Grid -->
+  <section id="services">
+    <h2 class="section-title" data-aos="fade-up">الخدمات الاستراتيجية</h2>
+    <div class="services-grid">
+      
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fa-solid fa-microchip"></i>
+        <h3>الحلول الهندسية والإلكترونية</h3>
+        <p>تصميم وتطوير أدق الأنظمة الهندسية والحلول الإلكترونية المتكاملة لتلبية المتطلبات الصناعية المعاصرة.</p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fa-solid fa-car-virtual"></i>
+        <h3>النماذج الأولية والمركبات</h3>
+        <p>صناعة وتطوير النماذج الأولية الفائقة والمركبات التجريبية لدعم قطاع النقل والتطوير الميكانيكي المستدام.</p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <i class="fa-solid fa-gears"></i>
+        <h3>البرمجيات والأتمتة</h3>
