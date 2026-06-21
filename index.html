@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QUAVRON - نصنع المستقبل</title>
   
-  <!-- استدعاء خط Cairo وتأثيرات AOS الحركية فخمة -->
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com" />
+  <!-- استدعاء خط Cairo وتأثيرات AOS الحركية فخمة والأيقونات -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- مكتبة الأيقونات والتحريك الرسمية -->
   <link rel="stylesheet" href="https://cloudflare.com">
+  <link rel="stylesheet" href="https://unpkg.com" />
 
   <style>
     /* المتغيرات والتنسيقات الأساسية المستوحاة من Xiaomi/BYD */
@@ -283,7 +285,7 @@
     /* تجاوب الموقع الكامل مع جميع أنواع الهواتف والشاشات */
     @media (max-width: 900px) {
       .navbar { padding: 15px 5%; }
-      .nav-links { display: none; } /* يفضل دمج زر قائمة لاحقاً */
+      .nav-links { display: none; }
       .hero-logo { max-width: 300px; }
       .hero p { font-size: 18px; }
       .about-container, .careers-container { grid-template-columns: 1fr; gap: 30px; padding: 25px; }
@@ -296,7 +298,8 @@
   <!-- شريط التنقل العلوي -->
   <header class="navbar">
     <div class="logo-container">
-      <img src="https://githubusercontent.com" alt="QUAVRON Logo">
+      <!-- استبدل الرابط بشعار النص الخاص بك لاحقاً -->
+      <h2 style="margin:0; font-weight:900; background: linear-gradient(45deg, #fff, var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QUAVRON</h2>
     </div>
     <ul class="nav-links">
       <li><a href="#hero">الرئيسية</a></li>
@@ -308,8 +311,8 @@
 
   <!-- قسم البطل الترحيبي السينمائي -->
   <section id="hero" class="hero">
-    <img src="https://githubusercontent.com" alt="QUAVRON Text Logo" class="hero-logo" data-aos="zoom-in">
-    <p data-aos="fade-up" data-aos-delay="300">نصنع المستقبل عبر الهندسة والابتكار التكنولوجي</p>
+    <h1 class="hero-logo" data-aos="zoom-in" style="font-size: 64px; font-weight: 900; margin: 0; background: linear-gradient(45deg, var(--neon-blue), var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QUAVRON</h1>
+    <p data-aos="fade-up" data-aos-delay="300">نصنع المستقبل عبر الهندسة والابتكار التكنولوجي المتكامل</p>
     <a href="#services" class="premium-btn" data-aos="fade-up" data-aos-delay="500">استكشف خدماتنا التقنية</a>
   </section>
 
@@ -319,35 +322,28 @@
     <div class="about-container" data-aos="fade-up">
       <div class="about-text">
         <p>
-          <strong>QUAVRON</strong> هي منشأة رائدة متخصصة في مجالات البحث والتطوير، الصناعات المتقدمة، الحلول الرقمية، وتأهيل الكفاءات الشابة الحيوية. 
-        </p>
-        <p>
-          نحن نسعى جاهدين لأن نكون شريكاً استراتيجياً قوياً وفعالاً في تنمية ودعم اقتصاد الوطن من خلال غرس قيم الابتكار والإبداع التقني في كل قطاع نعمل به.
+          تعد <strong>QUAVRON</strong> رائدة في تقديم الحلول البرمجية والهندسية المتكاملة للمؤسسات الكبرى والمشاريع الرقمية الطموحة. نحن ندمج بين أحدث تقنيات الويب والأداء العالي للسيرفرات السحابية لنمنح عملائنا ميزة تنافسية لا تضاهى في السوق. تم تصميم بنيتنا التحتية لتتحمل ملايين العمليات والطلبات المتزامنة بكفاءة واستقرار تام.
         </p>
       </div>
       <div class="about-image">
-        <img src="https://githubusercontent.com" alt="Industry Engineering">
+        <!-- صورة تعبيرية للمنصة تضاف لاحقاً -->
+        <div style="background: linear-gradient(135deg, #1e293b, #0f172a); height: 250px; border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05); shadow: 0 15px 30px rgba(0,0,0,0.5);">
+            <i class="fa-solid fa-layer-group" style="font-size: 60px; color: var(--neon-blue);"></i>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- قسم الخدمات المطور بنظام الـ Grid -->
+  <!-- قسم الخدمات التقنية -->
   <section id="services">
-    <h2 class="section-title" data-aos="fade-up">الخدمات الاستراتيجية</h2>
+    <h2 class="section-title" data-aos="fade-up">خدماتنا المتقدمة</h2>
     <div class="services-grid">
       
+      <!-- الخدمة الأولى -->
       <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-        <i class="fa-solid fa-microchip"></i>
-        <h3>الحلول الهندسية والإلكترونية</h3>
-        <p>تصميم وتطوير أدق الأنظمة الهندسية والحلول الإلكترونية المتكاملة لتلبية المتطلبات الصناعية المعاصرة.</p>
+        <i class="fa-solid fa-code"></i>
+        <h3>منصات الويب والمتاجر الذكية</h3>
+        <p>بناء وتطوير واجهات مستخدم سريعة وخارقة الاستجابة باستخدام Vue.js مرتبطة بأنظمة سحابية ديناميكية وآمنة.</p>
       </div>
 
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fa-solid fa-car-virtual"></i>
-        <h3>النماذج الأولية والمركبات</h3>
-        <p>صناعة وتطوير النماذج الأولية الفائقة والمركبات التجريبية لدعم قطاع النقل والتطوير الميكانيكي المستدام.</p>
-      </div>
-
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        <i class="fa-solid fa-gears"></i>
-        <h3>البرمجيات والأتمتة</h3>
+      <!-- الخدمة الثانية -->
