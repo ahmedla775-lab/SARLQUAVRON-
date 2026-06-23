@@ -468,3 +468,40 @@ footer {
   .nav-links { display: none; }
   section { padding: 80px 4%; }
   .hero h1 { font-size: 40px; }
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">QUAVRON</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <h1>QUAVRON FUTURE</h1>
+    <p>منصة تقنية مستقبلية</p>
+
+    <div class="hero-buttons">
+      <a class="btn btn-primary">ابدأ</a>
+      <a class="btn btn-secondary">استكشف</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.scroll').forEach(el => {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('active');
+    });
+  });
+  obs.observe(el);
+});
+</script>
+
+</body>
+</html>
