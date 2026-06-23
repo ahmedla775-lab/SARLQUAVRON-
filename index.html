@@ -2,52 +2,41 @@
 <html lang="ar" dir="rtl">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>QUAVRON | Future Technology</title>
+  <title>QUAVRON - نصنع المستقبل</title>
 
   <!-- SEO -->
-  <meta name="description" content="QUAVRON منصة تقنية مستقبلية متطورة">
-  <meta name="keywords" content="QUAVRON, AI, Cybersecurity, Web Development">
+  <meta name="description" content="QUAVRON منصة هندسية وتقنية متقدمة">
+  <meta name="keywords" content="QUAVRON, تطوير ويب, هندسة برمجيات">
   <meta name="author" content="QUAVRON">
 
-  <!-- Cairo Font -->
+  <!-- خط Cairo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- AOS -->
+  <!-- AOS Animation -->
   <link rel="stylesheet"
     href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
   <style>
 
     :root {
-
-      --bg-main: #050816;
-      --bg-secondary: #0f172a;
-
-      --card-bg:
-      rgba(255,255,255,0.05);
-
-      --primary: #3b82f6;
-      --secondary: #06b6d4;
-
-      --purple: #8b5cf6;
-      --pink: #ec4899;
-
+      --bg-dark: #0a0f1d;
+      --card-dark: #12192c;
+      --neon-blue: #0071e3;
+      --neon-cyan: #00f2fe;
       --text-main: #ffffff;
-      --text-muted: #cbd5e1;
-
-      --glass-border:
-      rgba(255,255,255,0.08);
-
+      --text-muted: #a0aec0;
     }
 
     * {
@@ -58,61 +47,22 @@
     }
 
     body {
-
       font-family: 'Cairo', sans-serif;
-
-      background:
-      linear-gradient(
-        135deg,
-        #050816,
-        #0f172a,
-        #111827
-      );
-
-      background-size: 400% 400%;
-
-      animation:
-      gradientMove 15s ease infinite;
-
+      background: var(--bg-dark);
       color: var(--text-main);
-
       overflow-x: hidden;
-    }
-
-    @keyframes gradientMove {
-
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-
     }
 
     a {
       text-decoration: none;
     }
 
-    section {
-      padding: 100px 8%;
-      position: relative;
-      z-index: 2;
-    }
-
     /* ================= NAVBAR ================= */
 
     .navbar {
-
       position: fixed;
       top: 0;
       width: 100%;
-
       z-index: 1000;
 
       display: flex;
@@ -121,78 +71,52 @@
 
       padding: 18px 8%;
 
-      background:
-      rgba(255,255,255,0.04);
-
+      background: rgba(10, 15, 29, 0.85);
       backdrop-filter: blur(12px);
 
-      border-bottom:
-      1px solid rgba(255,255,255,0.08);
-
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .logo {
-
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 900;
 
-      background:
-      linear-gradient(
+      background: linear-gradient(
         45deg,
-        var(--primary),
-        var(--secondary),
-        var(--purple)
+        var(--neon-blue),
+        var(--neon-cyan)
       );
 
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-
     }
 
     .nav-links {
-
       list-style: none;
-
       display: flex;
       gap: 30px;
-
     }
 
     .nav-links a {
-
       color: var(--text-muted);
-
       font-weight: 700;
-
       transition: 0.3s;
-
     }
 
     .nav-links a:hover {
-
-      color: white;
-
-      text-shadow:
-      0 0 15px rgba(59,130,246,0.7);
-
+      color: var(--neon-cyan);
     }
 
     .menu-btn {
-
       display: none;
-
+      font-size: 24px;
       color: white;
-
-      font-size: 25px;
-
       cursor: pointer;
-
     }
 
     /* ================= HERO ================= */
 
     .hero {
-
       min-height: 100vh;
 
       display: flex;
@@ -204,174 +128,110 @@
 
       padding: 0 20px;
 
-      position: relative;
-
-    }
-
-    .hero::before {
-
-      content: "";
-
-      position: absolute;
-
-      width: 600px;
-      height: 600px;
-
       background:
       radial-gradient(
-        circle,
-        rgba(59,130,246,0.25),
-        transparent 70%
+        circle at center,
+        rgba(0,113,227,0.18),
+        var(--bg-dark) 70%
       );
-
-      filter: blur(80px);
-
-      z-index: -1;
-
     }
 
     .hero-title {
-
-      font-size: 90px;
+      font-size: 72px;
       font-weight: 900;
 
-      background:
-      linear-gradient(
+      background: linear-gradient(
         45deg,
-        #fff,
-        var(--secondary),
-        var(--purple)
+        var(--neon-blue),
+        var(--neon-cyan)
       );
 
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
-      text-shadow:
-      0 0 30px rgba(59,130,246,0.4);
-
       margin-bottom: 20px;
-
     }
 
     .hero p {
-
-      max-width: 750px;
-
-      color: var(--text-muted);
+      max-width: 700px;
 
       font-size: 22px;
+      color: var(--text-muted);
 
-      line-height: 2;
-
+      line-height: 1.8;
       margin-bottom: 40px;
-
     }
 
     .premium-btn {
+      padding: 15px 40px;
 
-      padding: 16px 45px;
-
-      border-radius: 50px;
-
+      border-radius: 40px;
       border: none;
 
-      background:
-      linear-gradient(
+      background: linear-gradient(
         45deg,
-        var(--primary),
-        var(--secondary)
+        var(--neon-blue),
+        var(--neon-cyan)
       );
 
       color: white;
-
       font-size: 18px;
       font-weight: 700;
 
       cursor: pointer;
 
-      transition: 0.4s;
+      transition: 0.3s;
 
-      box-shadow:
-      0 0 25px rgba(59,130,246,0.45);
-
+      box-shadow: 0 0 25px rgba(0,113,227,0.4);
     }
 
     .premium-btn:hover {
+      transform: translateY(-5px);
 
-      transform:
-      translateY(-5px) scale(1.03);
-
-      box-shadow:
-      0 0 40px rgba(6,182,212,0.7);
-
+      box-shadow: 0 0 35px rgba(0,242,254,0.7);
     }
 
-    /* ================= TITLES ================= */
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 100px 8%;
+    }
 
     .section-title {
-
       text-align: center;
 
-      font-size: 42px;
+      font-size: 40px;
       font-weight: 900;
 
-      margin-bottom: 70px;
-
-      background:
-      linear-gradient(
-        45deg,
-        white,
-        var(--secondary)
-      );
-
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
+      margin-bottom: 60px;
     }
 
     /* ================= ABOUT ================= */
 
     .about-container {
-
       display: grid;
-
-      grid-template-columns:
-      1fr 1fr;
-
+      grid-template-columns: 1fr 1fr;
       gap: 50px;
 
       align-items: center;
 
-      background:
-      rgba(255,255,255,0.05);
+      background: var(--card-dark);
 
-      backdrop-filter: blur(12px);
+      padding: 40px;
 
-      border:
-      1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
 
-      border-radius: 25px;
-
-      padding: 50px;
-
-      box-shadow:
-      0 10px 35px rgba(0,0,0,0.35);
-
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .about-text p {
-
       color: var(--text-muted);
-
       line-height: 2;
-
       font-size: 18px;
-
     }
 
     .about-image {
-
-      height: 320px;
+      height: 300px;
 
       border-radius: 20px;
 
@@ -382,214 +242,104 @@
       background:
       linear-gradient(
         135deg,
-        rgba(59,130,246,0.15),
-        rgba(139,92,246,0.15)
+        #1e293b,
+        #0f172a
       );
 
-      border:
-      1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.05);
 
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
     .about-image i {
-
-      font-size: 100px;
-
-      color: var(--secondary);
-
-      text-shadow:
-      0 0 30px rgba(6,182,212,0.5);
-
+      font-size: 80px;
+      color: var(--neon-cyan);
     }
 
     /* ================= SERVICES ================= */
 
     .services-grid {
-
       display: grid;
 
       grid-template-columns:
-      repeat(auto-fit,minmax(280px,1fr));
+      repeat(auto-fit, minmax(280px, 1fr));
 
       gap: 30px;
-
     }
 
     .service-card {
+      background: var(--card-dark);
 
-      background:
-      rgba(255,255,255,0.05);
+      padding: 30px;
 
-      backdrop-filter: blur(12px);
+      border-radius: 18px;
 
-      border:
-      1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
 
-      border-radius: 22px;
-
-      padding: 35px;
-
-      transition: 0.4s;
+      border: 1px solid rgba(255,255,255,0.04);
 
       position: relative;
-
       overflow: hidden;
-
     }
 
     .service-card::before {
-
       content: "";
 
       position: absolute;
 
-      inset: 0;
+      top: 0;
+      left: 0;
 
-      background:
-      linear-gradient(
-        135deg,
-        transparent,
-        rgba(255,255,255,0.04),
-        transparent
-      );
+      width: 4px;
+      height: 100%;
 
-      transform: translateX(-100%);
+      background: var(--neon-blue);
 
-      transition: 0.6s;
-
-    }
-
-    .service-card:hover::before {
-
-      transform: translateX(100%);
-
+      transition: 0.3s;
     }
 
     .service-card:hover {
+      transform: translateY(-8px);
 
-      transform:
-      translateY(-10px);
+      border-color: rgba(0,242,254,0.25);
 
-      box-shadow:
-      0 15px 40px rgba(59,130,246,0.25);
+      box-shadow: 0 10px 30px rgba(0,113,227,0.2);
+    }
 
-      border-color:
-      rgba(6,182,212,0.35);
-
+    .service-card:hover::before {
+      width: 6px;
+      background: var(--neon-cyan);
     }
 
     .service-card i {
-
-      font-size: 45px;
+      font-size: 40px;
+      color: var(--neon-cyan);
 
       margin-bottom: 20px;
-
-      background:
-      linear-gradient(
-        45deg,
-        var(--secondary),
-        var(--purple)
-      );
-
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
     }
 
     .service-card h3 {
-
       margin-bottom: 15px;
-
-      font-size: 24px;
-
+      font-size: 22px;
     }
 
     .service-card p {
-
       color: var(--text-muted);
-
-      line-height: 1.9;
-
-    }
-
-    /* ================= FLOATING LIGHTS ================= */
-
-    .light {
-
-      position: fixed;
-
-      width: 300px;
-      height: 300px;
-
-      border-radius: 50%;
-
-      background:
-      radial-gradient(
-        circle,
-        rgba(59,130,246,0.18),
-        transparent 70%
-      );
-
-      filter: blur(80px);
-
-      z-index: 0;
-
-      animation:
-      floatLight 10s infinite ease-in-out;
-
-    }
-
-    .light1 {
-
-      top: 10%;
-      left: -100px;
-
-    }
-
-    .light2 {
-
-      bottom: 10%;
-      right: -100px;
-
-      animation-delay: 4s;
-
-    }
-
-    @keyframes floatLight {
-
-      0% {
-        transform:
-        translateY(0px);
-      }
-
-      50% {
-        transform:
-        translateY(-40px);
-      }
-
-      100% {
-        transform:
-        translateY(0px);
-      }
-
+      line-height: 1.8;
     }
 
     /* ================= FOOTER ================= */
 
     footer {
-
       text-align: center;
 
-      padding: 35px;
+      padding: 30px;
 
-      background:
-      rgba(0,0,0,0.25);
+      background: #05070d;
 
       color: var(--text-muted);
 
-      border-top:
-      1px solid rgba(255,255,255,0.06);
-
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
 
     /* ================= MOBILE ================= */
@@ -597,19 +347,14 @@
     @media(max-width: 900px) {
 
       .hero-title {
-        font-size: 55px;
+        font-size: 48px;
       }
 
       .hero p {
         font-size: 18px;
       }
 
-      .about-container {
-        grid-template-columns: 1fr;
-      }
-
       .nav-links {
-
         position: absolute;
 
         top: 80px;
@@ -617,19 +362,15 @@
 
         width: 220px;
 
+        background: var(--card-dark);
+
         flex-direction: column;
 
-        background:
-        rgba(255,255,255,0.06);
+        padding: 20px;
 
-        backdrop-filter: blur(12px);
-
-        padding: 25px;
-
-        border-radius: 20px;
+        border-radius: 15px;
 
         display: none;
-
       }
 
       .nav-links.active {
@@ -640,18 +381,16 @@
         display: block;
       }
 
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
     }
 
   </style>
-
 </head>
 
 <body>
-
-  <!-- Floating Lights -->
-
-  <div class="light light1"></div>
-  <div class="light light2"></div>
 
   <!-- NAVBAR -->
 
@@ -700,8 +439,7 @@
       data-aos-delay="300">
 
       نصنع المستقبل عبر الهندسة
-      والابتكار التكنولوجي
-      والأنظمة الذكية الحديثة
+      والابتكار التكنولوجي المتكامل
 
     </p>
 
@@ -725,7 +463,7 @@
       class="section-title"
       data-aos="fade-up">
 
-      عن QUAVRON
+      عن الشركة
 
     </h2>
 
@@ -737,11 +475,12 @@
 
         <p>
 
-          QUAVRON شركة تقنية مستقبلية
-          متخصصة في تطوير الحلول
-          البرمجية الذكية والأنظمة
-          السحابية والواجهات التفاعلية
-          المتقدمة عالية الأداء.
+          تعد QUAVRON منصة تقنية
+          متطورة متخصصة في بناء
+          الحلول البرمجية الحديثة
+          والأنظمة السحابية
+          والواجهات المتقدمة
+          عالية الأداء.
 
         </p>
 
@@ -749,7 +488,7 @@
 
       <div class="about-image">
 
-        <i class="fa-solid fa-microchip"></i>
+        <i class="fa-solid fa-layer-group"></i>
 
       </div>
 
@@ -782,10 +521,9 @@
         </h3>
 
         <p>
-
-          بناء مواقع ومنصات حديثة
-          عالية الأداء والتفاعل.
-
+          بناء مواقع ومنصات
+          احترافية عالية السرعة
+          والتفاعل.
         </p>
 
       </div>
@@ -798,14 +536,13 @@
         <i class="fa-solid fa-cloud"></i>
 
         <h3>
-          الأنظمة السحابية
+          الحلول السحابية
         </h3>
 
         <p>
-
-          حلول Cloud متطورة
-          وسريعة وآمنة للمؤسسات.
-
+          إدارة السيرفرات
+          والبنية السحابية
+          الحديثة.
         </p>
 
       </div>
@@ -822,10 +559,9 @@
         </h3>
 
         <p>
-
-          حماية الأنظمة والبيانات
-          والبنية الرقمية الحديثة.
-
+          حماية الأنظمة
+          والبيانات والبنية
+          الرقمية للمؤسسات.
         </p>
 
       </div>
@@ -850,22 +586,20 @@
   <script>
 
     AOS.init({
-      duration: 1200,
+      duration: 1000,
       once: true
     });
 
     // Mobile Menu
 
     const menuBtn =
-    document.getElementById("menuBtn");
+      document.getElementById("menuBtn");
 
     const navLinks =
-    document.getElementById("navLinks");
+      document.getElementById("navLinks");
 
     menuBtn.onclick = () => {
-
       navLinks.classList.toggle("active");
-
     };
 
   </script>
