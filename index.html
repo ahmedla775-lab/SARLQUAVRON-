@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUAVRON ULTRA 2026</title>
+<title>QUAVRON V2</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
@@ -13,19 +13,22 @@
 
 :root{
   --bg:#050712;
+  --text:#ffffff;
+  --muted:#9ca3af;
+
   --card:rgba(255,255,255,0.04);
   --border:rgba(255,255,255,0.08);
 
-  --text:#fff;
-  --muted:#9ca3af;
-
   --blue:#4f8cff;
   --cyan:#22d3ee;
-  --purple:#a78bfa;
 }
 
 /* RESET */
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   font-family:'Cairo',sans-serif;
@@ -34,23 +37,27 @@ body{
   overflow-x:hidden;
 }
 
-/* 🔮 BACKGROUND ULTRA DEPTH */
+/* LIGHT GLOW BACKGROUND */
 body::before{
   content:"";
   position:fixed;
-  width:700px;height:700px;
+  width:600px;
+  height:600px;
   background:radial-gradient(circle,rgba(79,140,255,0.18),transparent 70%);
-  top:-250px;left:-250px;
-  filter:blur(70px);
+  top:-200px;
+  left:-200px;
+  filter:blur(60px);
 }
 
 body::after{
   content:"";
   position:fixed;
-  width:700px;height:700px;
+  width:600px;
+  height:600px;
   background:radial-gradient(circle,rgba(34,211,238,0.14),transparent 70%);
-  bottom:-250px;right:-250px;
-  filter:blur(70px);
+  bottom:-200px;
+  right:-200px;
+  filter:blur(60px);
 }
 
 /* NAVBAR */
@@ -61,6 +68,7 @@ body::after{
   display:flex;
   justify-content:space-between;
   padding:18px 8%;
+
   background:rgba(0,0,0,0.25);
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--border);
@@ -70,20 +78,20 @@ body::after{
 .logo{
   font-size:22px;
   font-weight:900;
-  background:linear-gradient(45deg,var(--blue),var(--cyan),var(--purple));
+  background:linear-gradient(45deg,var(--blue),var(--cyan));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
 .navbar ul{
   display:flex;
-  gap:20px;
+  gap:18px;
   list-style:none;
 }
 
 .navbar a{
-  text-decoration:none;
   color:var(--muted);
+  text-decoration:none;
   transition:.3s;
 }
 
@@ -91,7 +99,7 @@ body::after{
   color:#fff;
 }
 
-/* HERO ULTRA */
+/* HERO STORY SECTION */
 .hero{
   height:100vh;
   display:flex;
@@ -103,17 +111,17 @@ body::after{
 }
 
 .hero h1{
-  font-size:90px;
+  font-size:95px;
   font-weight:900;
-  letter-spacing:2px;
+  letter-spacing:3px;
 
   background:linear-gradient(45deg,#fff,var(--cyan),var(--blue));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
   opacity:0;
-  transform:translateY(20px);
-  animation:fade 1s forwards;
+  transform:translateY(30px);
+  animation:fadeUp 1s forwards;
 }
 
 .hero p{
@@ -124,13 +132,13 @@ body::after{
   font-size:18px;
 
   opacity:0;
-  transform:translateY(20px);
-  animation:fade 1s forwards .3s;
+  transform:translateY(30px);
+  animation:fadeUp 1s forwards .3s;
 }
 
 .btn{
   margin-top:30px;
-  padding:14px 40px;
+  padding:14px 42px;
   border:none;
   border-radius:14px;
   cursor:pointer;
@@ -142,34 +150,43 @@ body::after{
   transition:.3s;
 
   opacity:0;
-  transform:translateY(20px);
-  animation:fade 1s forwards .6s;
+  transform:translateY(30px);
+  animation:fadeUp 1s forwards .6s;
 }
 
 .btn:hover{
-  transform:translateY(-6px) scale(1.03);
+  transform:translateY(-8px) scale(1.03);
   box-shadow:0 0 30px rgba(79,140,255,0.4);
 }
 
-/* SECTIONS */
+/* ANIMATION */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* SECTION */
 section{
   padding:90px 8%;
 }
 
+/* TITLE */
 .title{
   text-align:center;
   font-size:36px;
   margin-bottom:50px;
 }
 
-/* GRID */
+/* STORY CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
 
-/* GLASS CARDS ULTRA */
+/* GLASS CARD */
 .card{
   background:var(--card);
   border:1px solid var(--border);
@@ -177,10 +194,9 @@ section{
   border-radius:18px;
   padding:25px;
 
-  transition:.4s;
-
   opacity:0;
   transform:translateY(40px);
+  transition:.5s;
 }
 
 .card.show{
@@ -193,7 +209,7 @@ section{
   border-color:rgba(79,140,255,0.4);
 }
 
-/* ABOUT ULTRA */
+/* ABOUT */
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -207,8 +223,8 @@ section{
 
 .box{
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
 
   font-size:70px;
   color:var(--cyan);
@@ -226,14 +242,9 @@ footer{
   border-top:1px solid var(--border);
 }
 
-/* ANIMATION */
-@keyframes fade{
-  to{opacity:1;transform:translateY(0);}
-}
-
 /* MOBILE */
 @media(max-width:900px){
-  .hero h1{font-size:48px}
+  .hero h1{font-size:50px}
   .about{grid-template-columns:1fr}
   .navbar ul{display:none}
 }
@@ -245,7 +256,8 @@ footer{
 <body>
 
 <header class="navbar">
-  <div class="logo">QUAVRON ULTRA</div>
+  <div class="logo">QUAVRON</div>
+
   <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#">About</a></li>
@@ -255,19 +267,19 @@ footer{
 
 <section class="hero">
   <h1>QUAVRON</h1>
-  <p>We build next-generation digital systems with ultra modern design and performance.</p>
+  <p>We build next-generation digital systems with modern UI/UX and high performance engineering.</p>
   <button class="btn">ابدأ الآن</button>
 </section>
 
 <section>
-  <h2 class="title">عن الشركة</h2>
+  <h2 class="title">قصة الشركة</h2>
 
   <div class="about">
 
     <div class="card">
       <p>
-        QUAVRON ULTRA هي منصة تقنية متقدمة تركز على بناء أنظمة رقمية مستقبلية
-        تجمع بين التصميم الحديث والأداء العالي.
+        QUAVRON V2 ليست مجرد موقع، بل تجربة رقمية حديثة تعتمد على تصميم تفاعلي
+        وتقنيات واجهات المستقبل.
       </p>
     </div>
 
@@ -282,25 +294,25 @@ footer{
   <div class="grid">
 
     <div class="card">
-      <h3>Web Development</h3>
-      <p>مواقع حديثة عالية الأداء.</p>
+      <h3>Web Apps</h3>
+      <p>تطوير تطبيقات ويب حديثة وسريعة.</p>
     </div>
 
     <div class="card">
       <h3>Cloud Systems</h3>
-      <p>حلول سحابية قابلة للتوسع.</p>
+      <p>بنية سحابية قوية وقابلة للتوسع.</p>
     </div>
 
     <div class="card">
-      <h3>Cyber Security</h3>
-      <p>حماية متقدمة للأنظمة.</p>
+      <h3>Security</h3>
+      <p>حماية الأنظمة الرقمية.</p>
     </div>
 
   </div>
 </section>
 
 <footer>
-© 2026 QUAVRON ULTRA
+© 2026 QUAVRON V2
 </footer>
 
 <script>
@@ -309,10 +321,10 @@ footer{
 const cards = document.querySelectorAll('.card');
 
 window.addEventListener('scroll',()=>{
-  cards.forEach(c=>{
-    const r = c.getBoundingClientRect();
-    if(r.top < window.innerHeight - 80){
-      c.classList.add('show');
+  cards.forEach(card=>{
+    const rect = card.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 80){
+      card.classList.add('show');
     }
   });
 });
