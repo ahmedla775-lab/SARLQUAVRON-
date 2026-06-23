@@ -16,6 +16,8 @@ body{
   font-family:Cairo, sans-serif;
   background:#0a0a0a;
   color:#fff;
+  perspective:1000px;
+  overflow-x:hidden;
 }
 
 a{color:#aaa;text-decoration:none}
@@ -79,12 +81,6 @@ section{
   padding:100px 40px;
 }
 
-.title{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:40px;
-}
-
 /* ================= GRID ================= */
 
 .grid{
@@ -98,24 +94,26 @@ section{
   padding:25px;
   border-radius:15px;
   border:1px solid #222;
-  transition:.3s;
+  transition:0.5s ease;
 }
-
-.card:hover{
-  transform:translateY(-8px);
-  border-color:#00e5ff;
-}
-
-/* ================= STORE ================= */
 
 .product{
   background:#111;
   padding:20px;
   border-radius:15px;
   text-align:center;
+  transition:0.5s ease;
 }
 
-.product button{
+.card:hover,
+.product:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:#00e5ff;
+}
+
+/* ================= BUTTON ================= */
+
+button{
   margin-top:10px;
   padding:10px 20px;
   border:none;
@@ -124,14 +122,24 @@ section{
   font-weight:bold;
   cursor:pointer;
   border-radius:20px;
+  transition:0.3s;
 }
 
-/* ================= MEDIA ================= */
+button:hover{
+  transform:scale(1.05);
+}
 
-input{
-  padding:10px;
-  width:100%;
-  margin-bottom:20px;
+/* ================= ANIMATION SYSTEM ================= */
+
+.card, .product, section, .hero h1, .hero p{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
+}
+
+.show{
+  opacity:1 !important;
+  transform:translateY(0) !important;
 }
 
 /* ================= FOOTER ================= */
@@ -162,38 +170,40 @@ footer{
 
 <!-- HERO -->
 <section id="home" class="hero">
-  <h1>QUAVRON PLATFORM</h1>
-  <p>منصة تقنية متكاملة تجمع بين الذكاء الاصطناعي، المتجر الإلكتروني، وإدارة المحتوى في نظام واحد.</p>
+  <div>
+    <h1>QUAVRON PLATFORM</h1>
+    <p>منصة تقنية متكاملة تجمع بين الذكاء الاصطناعي والمتجر وإدارة المحتوى</p>
+  </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="title">عن المنصة</div>
+  <h2 style="text-align:center">عن المنصة</h2>
 
   <div class="grid">
-    <div class="card">🚀 أنظمة ذكاء اصطناعي</div>
-    <div class="card">☁ خدمات سحابية</div>
-    <div class="card">🛒 متجر إلكتروني</div>
-    <div class="card">📱 إدارة محتوى</div>
+    <div class="card">🚀 AI Systems</div>
+    <div class="card">☁ Cloud Platform</div>
+    <div class="card">🛒 E-Commerce</div>
+    <div class="card">📱 Content System</div>
   </div>
 </section>
 
 <!-- STORE -->
 <section id="store">
-  <div class="title">المتجر</div>
+  <h2 style="text-align:center">المتجر</h2>
 
   <div class="grid">
 
     <div class="product">
       <h3>Product A</h3>
-      <p>وصف المنتج هنا</p>
-      <button onclick="buy()">شراء</button>
+      <p>وصف المنتج</p>
+      <button>شراء</button>
     </div>
 
     <div class="product">
       <h3>Product B</h3>
-      <p>وصف المنتج هنا</p>
-      <button onclick="buy()">شراء</button>
+      <p>وصف المنتج</p>
+      <button>شراء</button>
     </div>
 
   </div>
@@ -201,11 +211,9 @@ footer{
 
 <!-- MEDIA -->
 <section id="media">
-  <div class="title">الميديا</div>
+  <h2 style="text-align:center">الميديا</h2>
 
-  <input type="file" multiple onchange="loadFiles(event)">
-
-  <div id="gallery" class="grid"></div>
+  <div class="grid" id="gallery"></div>
 </section>
 
 <!-- FOOTER -->
@@ -215,9 +223,34 @@ footer{
 
 <script>
 
-function buy(){
-  alert("تمت إضافة المنتج للسلة (نظام تجريبي)");
+// ================= SCROLL REVEAL =================
+
+const elements = document.querySelectorAll(
+  ".card, .product, section, .hero h1, .hero p"
+);
+
+function reveal(){
+  elements.forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){
+      el.classList.add("show");
+    }
+  });
 }
+
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+
+// ================= LIGHT PARALLAX =================
+
+document.addEventListener("mousemove", (e)=>{
+  const x = (e.clientX / window.innerWidth - 0.5) * 6;
+  const y = (e.clientY / window.innerHeight - 0.5) * 6;
+
+  document.body.style.transform = `rotateX(${-y}deg) rotateY(${x}deg)`;
+});
+
+// ================= SIMPLE GALLERY =================
 
 function loadFiles(event){
   const gallery = document.getElementById("gallery");
@@ -228,9 +261,7 @@ function loadFiles(event){
     reader.onload = function(e){
       const div = document.createElement("div");
       div.className = "card";
-      div.innerHTML = `
-        <img src="${e.target.result}" style="width:100%;border-radius:10px">
-      `;
+      div.innerHTML = `<img src="${e.target.result}" style="width:100%;border-radius:10px">`;
       gallery.appendChild(div);
     }
 
