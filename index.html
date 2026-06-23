@@ -5,71 +5,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUAVRON | Ultra Tech</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+<title>QUAVRON PLATFORM</title>
 
 <style>
 
-/* =====================
-   CORE DESIGN SYSTEM
-===================== */
-
-:root{
-  --bg:#050508;
-  --text:#ffffff;
-  --muted:#b0b0b0;
-
-  --glass:rgba(255,255,255,0.05);
-  --border:rgba(255,255,255,0.08);
-
-  --accent1:#00e5ff;
-  --accent2:#4f8cff;
-  --accent3:#a78bfa;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+/* ================= CORE ================= */
 
 body{
-  font-family:'Cairo',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
+  margin:0;
+  font-family:Cairo, sans-serif;
+  background:#0a0a0a;
+  color:#fff;
 }
 
-/* =====================
-   CINEMATIC LIGHT LAYERS
-===================== */
+a{color:#aaa;text-decoration:none}
+a:hover{color:#fff}
 
-body::before,
-body::after{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  filter:blur(90px);
-  z-index:-1;
-}
-
-body::before{
-  background:radial-gradient(circle,var(--accent2),transparent 60%);
-  top:-200px;
-  left:-200px;
-}
-
-body::after{
-  background:radial-gradient(circle,var(--accent1),transparent 60%);
-  bottom:-200px;
-  right:-200px;
-}
-
-/* =====================
-   NAVBAR (Luxury Minimal)
-===================== */
+/* ================= NAV ================= */
 
 nav{
   position:fixed;
@@ -77,39 +29,25 @@ nav{
   width:100%;
   display:flex;
   justify-content:space-between;
-  padding:20px 8%;
-
-  background:rgba(0,0,0,0.3);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
+  padding:18px 40px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #222;
   z-index:1000;
 }
 
 .logo{
-  font-size:22px;
   font-weight:900;
-  letter-spacing:3px;
-
-  background:linear-gradient(45deg,var(--accent1),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  font-size:20px;
+  color:#00e5ff;
 }
 
-nav a{
-  color:var(--muted);
-  margin:0 12px;
-  text-decoration:none;
+nav div a{
+  margin:0 10px;
   font-size:14px;
-  transition:.3s;
 }
 
-nav a:hover{
-  color:#fff;
-}
-
-/* =====================
-   HERO (TESLA + XIAOMI STYLE)
-===================== */
+/* ================= HERO ================= */
 
 .hero{
   height:100vh;
@@ -118,143 +56,91 @@ nav a:hover{
   justify-content:center;
   align-items:center;
   text-align:center;
-  position:relative;
-
-  background:radial-gradient(circle at center, rgba(0,229,255,0.12), transparent 60%);
+  padding:20px;
 }
 
 .hero h1{
-  font-size:110px;
-  font-weight:900;
-  letter-spacing:5px;
-
-  background:linear-gradient(45deg,#fff,var(--accent1),var(--accent2));
+  font-size:70px;
+  margin:0;
+  background:linear-gradient(45deg,#fff,#00e5ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-
-  animation:fadeUp 1s ease forwards;
-  opacity:0;
-  transform:translateY(40px);
 }
 
 .hero p{
-  margin-top:15px;
-  max-width:650px;
-  color:var(--muted);
-  line-height:1.9;
-
-  animation:fadeUp 1s ease forwards .3s;
-  opacity:0;
-  transform:translateY(40px);
+  color:#aaa;
+  max-width:600px;
+  line-height:1.8;
 }
 
-.btn{
-  margin-top:30px;
-  padding:14px 45px;
-  border:none;
-  border-radius:30px;
-  font-weight:700;
-  cursor:pointer;
-
-  background:linear-gradient(45deg,var(--accent2),var(--accent1));
-  color:#000;
-
-  transition:.3s;
-
-  animation:fadeUp 1s ease forwards .6s;
-  opacity:0;
-  transform:translateY(40px);
-}
-
-.btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 40px rgba(0,229,255,0.3);
-}
-
-/* =====================
-   SECTIONS (TESLA SCROLL STYLE)
-===================== */
+/* ================= SECTIONS ================= */
 
 section{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:80px 8%;
-  border-top:1px solid rgba(255,255,255,0.05);
+  padding:100px 40px;
 }
 
-.block{
-  max-width:900px;
+.title{
   text-align:center;
+  font-size:40px;
+  margin-bottom:40px;
 }
 
-.block h2{
-  font-size:60px;
-  margin-bottom:20px;
-}
-
-.block p{
-  color:var(--muted);
-  line-height:1.9;
-  font-size:18px;
-}
-
-/* =====================
-   PRODUCT CARD (XIAOMI STYLE)
-===================== */
+/* ================= GRID ================= */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
-  width:100%;
 }
 
 .card{
-  background:var(--glass);
-  border:1px solid var(--border);
-  backdrop-filter:blur(20px);
-  border-radius:20px;
+  background:#151515;
   padding:25px;
-  transition:.4s;
+  border-radius:15px;
+  border:1px solid #222;
+  transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-12px);
-  border-color:var(--accent1);
+  transform:translateY(-8px);
+  border-color:#00e5ff;
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* ================= STORE ================= */
+
+.product{
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.product button{
+  margin-top:10px;
+  padding:10px 20px;
+  border:none;
+  background:#00e5ff;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
+  border-radius:20px;
+}
+
+/* ================= MEDIA ================= */
+
+input{
+  padding:10px;
+  width:100%;
+  margin-bottom:20px;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
   text-align:center;
-  padding:40px;
-  color:var(--muted);
-  border-top:1px solid rgba(255,255,255,0.1);
-}
-
-/* =====================
-   ANIMATION
-===================== */
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* =====================
-   MOBILE
-===================== */
-
-@media(max-width:900px){
-  .hero h1{font-size:55px}
-  .block h2{font-size:40px}
-  nav .links{display:none}
+  padding:30px;
+  color:#777;
+  border-top:1px solid #222;
 }
 
 </style>
@@ -263,67 +149,96 @@ footer{
 
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="logo">QUAVRON</div>
-  <div class="links">
-    <a href="#">Tech</a>
-    <a href="#">Products</a>
-    <a href="#">Future</a>
+  <div>
+    <a href="#home">الرئيسية</a>
+    <a href="#about">عن</a>
+    <a href="#store">المتجر</a>
+    <a href="#media">الميديا</a>
   </div>
 </nav>
 
-<section class="hero">
-  <div>
-    <h1>QUAVRON</h1>
-    <p>Luxury Technology. Intelligent Systems. Future Engineering.</p>
-    <button class="btn">Explore</button>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>QUAVRON PLATFORM</h1>
+  <p>منصة تقنية متكاملة تجمع بين الذكاء الاصطناعي، المتجر الإلكتروني، وإدارة المحتوى في نظام واحد.</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="title">عن المنصة</div>
+
+  <div class="grid">
+    <div class="card">🚀 أنظمة ذكاء اصطناعي</div>
+    <div class="card">☁ خدمات سحابية</div>
+    <div class="card">🛒 متجر إلكتروني</div>
+    <div class="card">📱 إدارة محتوى</div>
   </div>
 </section>
 
-<section>
-  <div class="block">
-    <h2>Vision</h2>
-    <p>
-      We build next-generation digital ecosystems inspired by Tesla precision,
-      Xiaomi simplicity, and Huawei engineering power.
-    </p>
-  </div>
-</section>
+<!-- STORE -->
+<section id="store">
+  <div class="title">المتجر</div>
 
-<section>
   <div class="grid">
 
-    <div class="card">
-      <h3>AI Systems</h3>
-      <p>Intelligent platforms for modern world.</p>
+    <div class="product">
+      <h3>Product A</h3>
+      <p>وصف المنتج هنا</p>
+      <button onclick="buy()">شراء</button>
     </div>
 
-    <div class="card">
-      <h3>Cloud Engine</h3>
-      <p>Scalable infrastructure for future apps.</p>
-    </div>
-
-    <div class="card">
-      <h3>Security Core</h3>
-      <p>Advanced protection systems.</p>
+    <div class="product">
+      <h3>Product B</h3>
+      <p>وصف المنتج هنا</p>
+      <button onclick="buy()">شراء</button>
     </div>
 
   </div>
 </section>
 
-<section>
-  <div class="block">
-    <h2>Future is Now</h2>
-    <p>
-      Minimal design. Maximum power. Real experience like global tech brands.
-    </p>
-  </div>
+<!-- MEDIA -->
+<section id="media">
+  <div class="title">الميديا</div>
+
+  <input type="file" multiple onchange="loadFiles(event)">
+
+  <div id="gallery" class="grid"></div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-© 2026 QUAVRON — Ultra Luxury Tech Experience
+© 2026 QUAVRON PLATFORM
 </footer>
 
-</body>
+<script>
 
+function buy(){
+  alert("تمت إضافة المنتج للسلة (نظام تجريبي)");
+}
+
+function loadFiles(event){
+  const gallery = document.getElementById("gallery");
+
+  for(let file of event.target.files){
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <img src="${e.target.result}" style="width:100%;border-radius:10px">
+      `;
+      gallery.appendChild(div);
+    }
+
+    reader.readAsDataURL(file);
+  }
+}
+
+</script>
+
+</body>
 </html>
