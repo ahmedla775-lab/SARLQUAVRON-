@@ -6,79 +6,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QUAVRON | Future Ecosystem</title>
 
-<!-- استيراد خطوط فاخرة ومتوافقة مع التصميم التقني -->
-<link rel="preconnect" href="https://googleapis.com">
+<!-- استيراد الخطوط الفاخرة المخصصة للواجهات التقنية -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
 
 <style>
 /* ================= الـثـيـم والـمـتـغـيـرات الـرئـيـسـيـة ================= */
 :root {
   --bg-dark: #050505;
-  --panel-dark: #0d0d11;
+  --panel-dark: #0c0c10;
   --accent-cyan: #00f0ff;
   --accent-purple: #7000ff;
   --text-main: #ffffff;
   --text-muted: #8f9cae;
-  --border-color: rgba(255, 255, 255, 0.06);
-  --glass-bg: rgba(13, 13, 17, 0.7);
+  --border-color: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(10, 10, 14, 0.75);
   --glass-blur: blur(20px);
 }
 
-/* ================= الـهـيـكـل الـعـام ================= */
+/* ================= الـهـيـكـل الـعـام والـتـصـفـيـر ================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html { 
+  scroll-behavior: smooth; 
 }
 
 body {
-  font-family: 'Cairo', 'Orbitron', sans-serif;
-  background-color: var(--bg-dark);
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg-dark);
   color: var(--text-main);
   overflow-x: hidden;
   position: relative;
 }
 
-/* تأثير الإضاءة الخلفية المحيطية الفاخرة */
-body::before {
+/* تأثير الإضاءة المحيطية السينمائية المستوحى من منصات التكنولوجيا العظمى */
+body::before, body::after {
   content: '';
   position: absolute;
-  top: -10%;
-  left: -20%;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
   z-index: -1;
   pointer-events: none;
+  filter: blur(120px);
 }
-
+body::before {
+  top: -10%; left: -10%; width: 50vw; height: 50vw;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.04) 0%, transparent 70%);
+}
 body::after {
-  content: '';
-  position: absolute;
-  top: 40%;
-  right: -20%;
-  width: 70vw;
-  height: 70vw;
-  background: radial-gradient(circle, rgba(112, 0, 255, 0.04) 0%, transparent 70%);
-  z-index: -1;
-  pointer-events: none;
+  top: 50%; right: -10%; width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(112, 0, 255, 0.03) 0%, transparent 70%);
 }
 
 /* ================= شـريـط الـتـنـقـل الـعـالـمـي ================= */
 nav {
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 6%;
+  padding: 22px 6%;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -89,9 +82,9 @@ nav {
 .logo {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
-  font-size: 24px;
-  letter-spacing: 3px;
-  background: linear-gradient(90deg, #fff, var(--accent-cyan));
+  font-size: 22px;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -103,12 +96,12 @@ nav {
 
 .nav-links a {
   color: var(--text-muted);
+  text-decoration: none;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 1px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease;
   position: relative;
-  padding: 5px 0;
+  padding: 4px 0;
 }
 
 .nav-links a:hover {
@@ -130,7 +123,7 @@ nav {
   width: 100%;
 }
 
-/* ================= واجـهـة الـهـيـرو الـسـيـنـمـائـيـة ================= */
+/* ================= واجـهـة الـهـيـرو (الافتتاحية) ================= */
 .hero {
   height: 100vh;
   display: flex;
@@ -140,18 +133,14 @@ nav {
   text-align: center;
   padding: 0 20px;
   position: relative;
-  background: radial-gradient(circle at center, rgba(13, 13, 17, 0.2) 0%, var(--bg-dark) 100%);
 }
 
-/* تأثير الخلفية الشبكية الدقيقة المستوحى من تسلا */
+/* خلفية دقيقة بنمط الشبكة الهندسية (Grid Layer) لأسلوب تسلا */
 .hero-grid {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
-  background-size: 50px 50px;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: linear-gradient(rgba(255,255,255,0.008) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.008) 1px, transparent 1px);
+  background-size: 60px 60px;
   z-index: 1;
   pointer-events: none;
 }
@@ -159,39 +148,25 @@ nav {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
-}
-
-.hero-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: var(--accent-cyan);
-  margin-bottom: 25px;
-  text-transform: uppercase;
+  max-width: 850px;
 }
 
 .hero h1 {
   font-family: 'Orbitron', 'Cairo', sans-serif;
-  font-size: clamp(40px, 6vw, 85px);
+  font-size: clamp(38px, 6vw, 76px);
   font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-  background: linear-gradient(180deg, #ffffff 30%, #a5b4fc 100%);
+  line-height: 1.15;
+  background: linear-gradient(180deg, #ffffff 40%, #a5b4fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
 }
 
 .hero p {
   color: var(--text-muted);
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(15px, 2vw, 19px);
   max-width: 650px;
-  margin: 0 auto 40px auto;
+  margin: 25px auto 40px auto;
   line-height: 1.8;
   font-weight: 300;
 }
@@ -199,18 +174,17 @@ nav {
 /* ================= الأقـسـام والـعـنـاويـن ================= */
 section {
   padding: 140px 6%;
-  position: relative;
   max-width: 1600px;
   margin: 0 auto;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 75px;
 }
 
 .section-header h2 {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(26px, 4vw, 38px);
   font-weight: 700;
   letter-spacing: -0.5px;
   margin-bottom: 15px;
@@ -218,52 +192,36 @@ section {
 
 .section-header p {
   color: var(--text-muted);
-  font-size: 16px;
-  max-width: 500px;
+  font-size: 15px;
+  max-width: 550px;
   margin: 0 auto;
 }
 
-/* ================= نـظـام الـبـطـاقـات الـمـتـطـور ================= */
+/* ================= نـظـام الـشـبـكـات والـبـطـاقـات ================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
 .card {
   background: var(--panel-dark);
   border: 1px solid var(--border-color);
-  padding: 40px;
+  padding: 40px 35px;
   border-radius: 24px;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0, 240, 255, 0.02) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
   border-color: rgba(0, 240, 255, 0.3);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
-.card:hover::before {
-  opacity: 1;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
 .card h3 {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 15px;
   font-weight: 700;
 }
@@ -271,51 +229,54 @@ section {
 .card p {
   color: var(--text-muted);
   line-height: 1.7;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 300;
 }
 
-/* ================= قـسـم الـمـنـتـجـات (أسـلـوب شـاومـي وتـسـلا) ================= */
+/* ================= قـسـم الـمـتـجـر والـمـنـتـجـات الفاخرة ================= */
 .product-card {
   background: #09090d;
   border: 1px solid var(--border-color);
-  border-radius: 32px;
+  border-radius: 28px;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(112, 0, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
 .product-img-holder {
-  background: linear-gradient(180deg, #111116 0%, #09090d 100%);
-  height: 280px;
+  background: linear-gradient(180deg, #121218 0%, #09090d 100%);
+  height: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
-/* بديل للمجسم الصوري لعرض فخامة المنتج */
+/* مجسم هندسي ضوئي تفاعلي كبديل للملفات الصورية غير المتوفرة */
 .product-visual-mock {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-  border-radius: 30px;
-  filter: drop-shadow(0 0 30px rgba(0,240,255,0.3));
-  transition: transform 0.5s ease;
+  width: 100px;
+  height: 100px;
+  border-radius: 24px;
+  filter: drop-shadow(0 0 25px rgba(0,240,255,0.25));
+  transition: transform 0.6s ease;
 }
 
 .product-card:hover .product-visual-mock {
-  transform: scale(1.1) rotate(10deg);
+  transform: scale(1.1) rotate(8deg);
 }
 
 .product-info {
-  padding: 35px;
+  padding: 30px;
 }
 
 .product-info h3 {
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
@@ -326,36 +287,35 @@ section {
   line-height: 1.6;
 }
 
-/* ================= أزرار مـسـتـقـبـلـيـة عـالـمـيـة ================= */
+/* ================= أزرار الـتـحـكـم والـطـلـب ================= */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
+  padding: 12px 30px;
   border-radius: 50px;
   font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  border: none;
 }
 
 .btn-primary {
   background: var(--text-main);
   color: var(--bg-dark);
-  border: none;
 }
 
 .btn-primary:hover {
   background: var(--accent-cyan);
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--text-main);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
 .btn-secondary:hover {
@@ -365,22 +325,22 @@ section {
 
 .hero-buttons {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
 }
 
-/* ================= قـسـم الاسـتـثـمـار R&D ================= */
+/* ================= قـسـم الـمـؤشـرات الاحـصـائـيـة ================= */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  margin-top: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
   text-align: center;
 }
 
 .stat-item h4 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 48px;
+  font-size: 42px;
   color: var(--accent-cyan);
   font-weight: 900;
   margin-bottom: 5px;
@@ -388,25 +348,24 @@ section {
 
 .stat-item p {
   color: var(--text-muted);
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-size: 13px;
 }
 
-/* ================= نـظـام الـمـيـديـا الـتـفـاعـلـي ================= */
+/* ================= نـظـام الـمـيـديـا والـرفـع الاسـتـحـدادي ================= */
 .media-container {
   background: var(--panel-dark);
   border: 1px solid var(--border-color);
   padding: 40px;
   border-radius: 24px;
-  text-align: center;
 }
 
 .upload-box {
-  border: 2px dashed rgba(255,255,255,0.1);
-  padding: 40px 20px;
+  border: 2px dashed rgba(255,255,255,0.08);
+  padding: 45px 20px;
   border-radius: 16px;
   cursor: pointer;
-  transition: background 0.3s;
+  text-align: center;
+  transition: all 0.3s ease;
   margin-bottom: 40px;
 }
 
@@ -426,6 +385,7 @@ section {
   border-radius: 16px;
   overflow: hidden;
   aspect-ratio: 1;
+  border: 1px solid var(--border-color);
 }
 
 .gallery-item img {
@@ -436,22 +396,22 @@ section {
 }
 
 .gallery-item:hover img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
-/* ================= نـظـام الـحـركـة الـفـاخـر (Scroll Motion) ================= */
-.scroll-reveal {
+/* ================= نـظـام الـحـركـة والانـسـيـابـية (Scroll Reveal) ================= */
+.scroll {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.scroll-reveal.active {
+.scroll.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ================= الـتـذيـيـل (Footer) ================= */
+/* ================= الـتـذيـيـل الـعـالـمـي (Footer) ================= */
 footer {
   background: #020203;
   padding: 80px 6% 40px 6%;
@@ -463,14 +423,48 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .footer-col h5 {
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 1px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: #fff;
 }
 
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent-cyan);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #444;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.02);
+  padding-top: 30px;
+}
+
+/* ================= الـتـجـاوب مـع الـشـاشـات الـصـغـيـرة ================= */
+@media (max-width: 768px) {
+  nav { padding: 15px 4%; }
+  .nav-links { display: none; }
+  section { padding: 80px 4%; }
+  .hero h1 { font-size: 40px; }
