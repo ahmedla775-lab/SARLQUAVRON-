@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>QUAVRON - نصنع المستقبل</title>
-  
-  <!-- استدعاء خط Cairo وتأثيرات AOS الحركية فخمة والأيقونات -->
+
+  <!-- SEO -->
+  <meta name="description" content="QUAVRON منصة هندسية وتقنية متقدمة">
+  <meta name="keywords" content="QUAVRON, تطوير ويب, هندسة برمجيات">
+  <meta name="author" content="QUAVRON">
+
+  <!-- خط Cairo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-  
-  <!-- مكتبة الأيقونات والتحريك الرسمية -->
-  <link rel="stylesheet" href="https://cloudflare.com">
-  <link rel="stylesheet" href="https://unpkg.com" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
   <style>
-    /* المتغيرات والتنسيقات الأساسية المستوحاة من Xiaomi/BYD */
+
     :root {
       --bg-dark: #0a0f1d;
       --card-dark: #12192c;
@@ -26,324 +40,569 @@
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: var(--bg-dark);
+      background: var(--bg-dark);
       color: var(--text-main);
-      margin: 0;
-      padding: 0;
       overflow-x: hidden;
     }
 
-    /* شريط التنقل العلوي الفخم (Navbar) */
+    a {
+      text-decoration: none;
+    }
+
+    /* ================= NAVBAR ================= */
+
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 8%;
-      background: rgba(10, 15, 29, 0.85);
-      backdrop-filter: blur(10px);
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 8%;
+
+      background: rgba(10, 15, 29, 0.85);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    .navbar .logo-container img {
-      height: 45px;
-      display: block;
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+
+      background: linear-gradient(
+        45deg,
+        var(--neon-blue),
+        var(--neon-cyan)
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
       gap: 30px;
-      margin: 0;
-      padding: 0;
     }
 
     .nav-links a {
       color: var(--text-muted);
-      text-decoration: none;
-      font-size: 16px;
       font-weight: 700;
-      transition: color 0.3s ease;
+      transition: 0.3s;
     }
 
     .nav-links a:hover {
       color: var(--neon-cyan);
     }
 
-    /* قسم البطل السينمائي (Hero Section) كموقع BYD */
+    .menu-btn {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
+
     .hero {
-      height: 100vh;
+      min-height: 100vh;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       text-align: center;
+
       padding: 0 20px;
-      background: radial-gradient(circle at center, rgba(0, 113, 223, 0.15) 0%, var(--bg-dark) 70%);
-      position: relative;
+
+      background:
+      radial-gradient(
+        circle at center,
+        rgba(0,113,227,0.18),
+        var(--bg-dark) 70%
+      );
     }
 
-    .hero-logo {
-      max-width: 450px;
-      width: 100%;
+    .hero-title {
+      font-size: 72px;
+      font-weight: 900;
+
+      background: linear-gradient(
+        45deg,
+        var(--neon-blue),
+        var(--neon-cyan)
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
       margin-bottom: 20px;
-      filter: drop-shadow(0 0 25px rgba(0, 113, 223, 0.4));
     }
 
     .hero p {
-      font-size: 24px;
+      max-width: 700px;
+
+      font-size: 22px;
       color: var(--text-muted);
-      max-width: 600px;
-      margin-top: 0;
+
+      line-height: 1.8;
       margin-bottom: 40px;
-      font-weight: 300;
-      letter-spacing: 1px;
     }
 
-    /* الزر المتوهج التفاعلي */
     .premium-btn {
-      background: linear-gradient(45deg, var(--neon-blue), var(--neon-cyan));
-      color: white;
       padding: 15px 40px;
+
+      border-radius: 40px;
       border: none;
-      border-radius: 30px;
+
+      background: linear-gradient(
+        45deg,
+        var(--neon-blue),
+        var(--neon-cyan)
+      );
+
+      color: white;
       font-size: 18px;
       font-weight: 700;
+
       cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 0 20px rgba(0, 113, 227, 0.4);
-      transition: all 0.3s ease;
+
+      transition: 0.3s;
+
+      box-shadow: 0 0 25px rgba(0,113,227,0.4);
     }
 
     .premium-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 35px rgba(0, 242, 254, 0.7);
+      transform: translateY(-5px);
+
+      box-shadow: 0 0 35px rgba(0,242,254,0.7);
     }
 
-    /* أقسام المحتوى العامة */
+    /* ================= GENERAL ================= */
+
     section {
-      padding: 100px 8% 60px 8%;
-      max-width: 1200px;
-      margin: auto;
+      padding: 100px 8%;
     }
 
     .section-title {
-      font-size: 36px;
-      font-weight: 900;
       text-align: center;
+
+      font-size: 40px;
+      font-weight: 900;
+
       margin-bottom: 60px;
-      background: linear-gradient(120deg, #fff, var(--text-muted));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
     }
 
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--neon-cyan);
-      margin: 15px auto 0 auto;
-      border-radius: 2px;
-    }
+    /* ================= ABOUT ================= */
 
-    /* بطاقة قسم "عن الشركة" المشابه للاندينج بيج */
     .about-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
+
       align-items: center;
+
       background: var(--card-dark);
+
       padding: 40px;
+
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .about-text p {
-      font-size: 18px;
-      line-height: 1.8;
       color: var(--text-muted);
+      line-height: 2;
+      font-size: 18px;
     }
 
-    .about-image img, .careers-image img {
-      width: 100%;
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    .about-image {
+      height: 300px;
+
+      border-radius: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background:
+      linear-gradient(
+        135deg,
+        #1e293b,
+        #0f172a
+      );
+
+      border: 1px solid rgba(255,255,255,0.05);
+
       box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     }
 
-    /* نظام شبكة الخدمات المتطورة (Services Grid) */
+    .about-image i {
+      font-size: 80px;
+      color: var(--neon-cyan);
+    }
+
+    /* ================= SERVICES ================= */
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+      grid-template-columns:
+      repeat(auto-fit, minmax(280px, 1fr));
+
       gap: 30px;
     }
 
     .service-card {
       background: var(--card-dark);
+
       padding: 30px;
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      transition: all 0.3s ease;
+
+      border-radius: 18px;
+
+      transition: 0.3s;
+
+      border: 1px solid rgba(255,255,255,0.04);
+
       position: relative;
       overflow: hidden;
     }
 
     .service-card::before {
-      content: '';
+      content: "";
+
       position: absolute;
-      top: 0; left: 0; width: 4px; height: 100%;
+
+      top: 0;
+      left: 0;
+
+      width: 4px;
+      height: 100%;
+
       background: var(--neon-blue);
-      transition: all 0.3s ease;
+
+      transition: 0.3s;
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0, 242, 254, 0.2);
-      box-shadow: 0 10px 25px rgba(0, 113, 227, 0.15);
+      transform: translateY(-8px);
+
+      border-color: rgba(0,242,254,0.25);
+
+      box-shadow: 0 10px 30px rgba(0,113,227,0.2);
     }
 
     .service-card:hover::before {
-      background: var(--neon-cyan);
       width: 6px;
+      background: var(--neon-cyan);
     }
 
     .service-card i {
-      font-size: 35px;
+      font-size: 40px;
       color: var(--neon-cyan);
+
       margin-bottom: 20px;
     }
 
     .service-card h3 {
+      margin-bottom: 15px;
       font-size: 22px;
-      margin: 0 0 15px 0;
     }
 
     .service-card p {
       color: var(--text-muted);
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    /* قسم التوظيف */
-    .careers-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-      background: var(--card-dark);
-      padding: 40px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-    }
-
-    .careers-text h3 {
-      font-size: 24px;
-      color: var(--neon-cyan);
-      margin-top: 0;
-    }
-
-    .careers-text p {
-      font-size: 16px;
-      color: var(--text-muted);
       line-height: 1.8;
     }
 
-    .email-highlight {
-      display: inline-block;
-      background: rgba(0, 113, 227, 0.15);
-      border: 1px dashed var(--neon-blue);
-      padding: 10px 20px;
-      border-radius: 8px;
-      color: #fff;
-      font-family: monospace;
-      font-size: 18px;
-      margin: 15px 0;
-    }
+    /* ================= FOOTER ================= */
 
-    /* تذييل الصفحة (Footer) */
     footer {
-      background-color: #05070d;
-      color: var(--text-muted);
       text-align: center;
+
       padding: 30px;
-      font-size: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      background: #05070d;
+
+      color: var(--text-muted);
+
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* تجاوب الموقع الكامل مع جميع أنواع الهواتف والشاشات */
-    @media (max-width: 900px) {
-      .navbar { padding: 15px 5%; }
-      .nav-links { display: none; }
-      .hero-logo { max-width: 300px; }
-      .hero p { font-size: 18px; }
-      .about-container, .careers-container { grid-template-columns: 1fr; gap: 30px; padding: 25px; }
-      .section-title { font-size: 28px; }
+    /* ================= MOBILE ================= */
+
+    @media(max-width: 900px) {
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top: 80px;
+        right: 5%;
+
+        width: 220px;
+
+        background: var(--card-dark);
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        border-radius: 15px;
+
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
     }
+
   </style>
 </head>
+
 <body>
 
-  <!-- شريط التنقل العلوي -->
+  <!-- NAVBAR -->
+
   <header class="navbar">
-    <div class="logo-container">
-      <!-- استبدل الرابط بشعار النص الخاص بك لاحقاً -->
-      <h2 style="margin:0; font-weight:900; background: linear-gradient(45deg, #fff, var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QUAVRON</h2>
+
+    <div class="logo">
+      QUAVRON
     </div>
-    <ul class="nav-links">
-      <li><a href="#hero">الرئيسية</a></li>
-      <li><a href="#about">عن الشركة</a></li>
-      <li><a href="#services">الخدمات</a></li>
-      <li><a href="#careers">التوظيف</a></li>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li>
+        <a href="#hero">الرئيسية</a>
+      </li>
+
+      <li>
+        <a href="#about">عن الشركة</a>
+      </li>
+
+      <li>
+        <a href="#services">الخدمات</a>
+      </li>
+
     </ul>
+
+    <div class="menu-btn" id="menuBtn">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
   </header>
 
-  <!-- قسم البطل الترحيبي السينمائي -->
-  <section id="hero" class="hero">
-    <h1 class="hero-logo" data-aos="zoom-in" style="font-size: 64px; font-weight: 900; margin: 0; background: linear-gradient(45deg, var(--neon-blue), var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">QUAVRON</h1>
-    <p data-aos="fade-up" data-aos-delay="300">نصنع المستقبل عبر الهندسة والابتكار التكنولوجي المتكامل</p>
-    <a href="#services" class="premium-btn" data-aos="fade-up" data-aos-delay="500">استكشف خدماتنا التقنية</a>
+  <!-- HERO -->
+
+  <section class="hero" id="hero">
+
+    <h1
+      class="hero-title"
+      data-aos="zoom-in">
+
+      QUAVRON
+
+    </h1>
+
+    <p
+      data-aos="fade-up"
+      data-aos-delay="300">
+
+      نصنع المستقبل عبر الهندسة
+      والابتكار التكنولوجي المتكامل
+
+    </p>
+
+    <a
+      href="#services"
+      class="premium-btn"
+      data-aos="fade-up"
+      data-aos-delay="500">
+
+      استكشف خدماتنا
+
+    </a>
+
   </section>
 
-  <!-- قسم عن الشركة -->
+  <!-- ABOUT -->
+
   <section id="about">
-    <h2 class="section-title" data-aos="fade-up">عن الشركة</h2>
-    <div class="about-container" data-aos="fade-up">
+
+    <h2
+      class="section-title"
+      data-aos="fade-up">
+
+      عن الشركة
+
+    </h2>
+
+    <div
+      class="about-container"
+      data-aos="fade-up">
+
       <div class="about-text">
+
         <p>
-          تعد <strong>QUAVRON</strong> رائدة في تقديم الحلول البرمجية والهندسية المتكاملة للمؤسسات الكبرى والمشاريع الرقمية الطموحة. نحن ندمج بين أحدث تقنيات الويب والأداء العالي للسيرفرات السحابية لنمنح عملائنا ميزة تنافسية لا تضاهى في السوق. تم تصميم بنيتنا التحتية لتتحمل ملايين العمليات والطلبات المتزامنة بكفاءة واستقرار تام.
+
+          تعد QUAVRON منصة تقنية
+          متطورة متخصصة في بناء
+          الحلول البرمجية الحديثة
+          والأنظمة السحابية
+          والواجهات المتقدمة
+          عالية الأداء.
+
         </p>
+
       </div>
+
       <div class="about-image">
-        <!-- صورة تعبيرية للمنصة تضاف لاحقاً -->
-        <div style="background: linear-gradient(135deg, #1e293b, #0f172a); height: 250px; border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05); shadow: 0 15px 30px rgba(0,0,0,0.5);">
-            <i class="fa-solid fa-layer-group" style="font-size: 60px; color: var(--neon-blue);"></i>
-        </div>
+
+        <i class="fa-solid fa-layer-group"></i>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- قسم الخدمات التقنية -->
+  <!-- SERVICES -->
+
   <section id="services">
-    <h2 class="section-title" data-aos="fade-up">خدماتنا المتقدمة</h2>
+
+    <h2
+      class="section-title"
+      data-aos="fade-up">
+
+      خدماتنا
+
+    </h2>
+
     <div class="services-grid">
-      
-      <!-- الخدمة الأولى -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+
+      <div
+        class="service-card"
+        data-aos="fade-up">
+
         <i class="fa-solid fa-code"></i>
-        <h3>منصات الويب والمتاجر الذكية</h3>
-        <p>بناء وتطوير واجهات مستخدم سريعة وخارقة الاستجابة باستخدام Vue.js مرتبطة بأنظمة سحابية ديناميكية وآمنة.</p>
+
+        <h3>
+          تطوير الويب
+        </h3>
+
+        <p>
+          بناء مواقع ومنصات
+          احترافية عالية السرعة
+          والتفاعل.
+        </p>
+
       </div>
 
-      <!-- الخدمة الثانية -->
+      <div
+        class="service-card"
+        data-aos="fade-up"
+        data-aos-delay="150">
+
+        <i class="fa-solid fa-cloud"></i>
+
+        <h3>
+          الحلول السحابية
+        </h3>
+
+        <p>
+          إدارة السيرفرات
+          والبنية السحابية
+          الحديثة.
+        </p>
+
+      </div>
+
+      <div
+        class="service-card"
+        data-aos="fade-up"
+        data-aos-delay="300">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <h3>
+          الأمن السيبراني
+        </h3>
+
+        <p>
+          حماية الأنظمة
+          والبيانات والبنية
+          الرقمية للمؤسسات.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 QUAVRON
+    - جميع الحقوق محفوظة
+
+  </footer>
+
+  <!-- AOS -->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Mobile Menu
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    menuBtn.onclick = () => {
+      navLinks.classList.toggle("active");
+    };
+
+  </script>
+
+</body>
+</html>
