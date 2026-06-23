@@ -5,25 +5,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUAVRON V2</title>
+<title>QUAVRON AI</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-  --bg:#050712;
+  --bg:#05060c;
   --text:#ffffff;
   --muted:#9ca3af;
 
-  --card:rgba(255,255,255,0.04);
-  --border:rgba(255,255,255,0.08);
-
   --blue:#4f8cff;
   --cyan:#22d3ee;
+  --purple:#a78bfa;
+
+  --glass:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);
 }
 
-/* RESET */
 *{
   margin:0;
   padding:0;
@@ -37,30 +37,30 @@ body{
   overflow-x:hidden;
 }
 
-/* LIGHT GLOW BACKGROUND */
+/* 🌌 CINEMATIC LIGHTS */
 body::before{
   content:"";
   position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,rgba(79,140,255,0.18),transparent 70%);
-  top:-200px;
-  left:-200px;
-  filter:blur(60px);
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,rgba(79,140,255,0.18),transparent 60%);
+  top:-250px;
+  left:-250px;
+  filter:blur(80px);
 }
 
 body::after{
   content:"";
   position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,rgba(34,211,238,0.14),transparent 70%);
-  bottom:-200px;
-  right:-200px;
-  filter:blur(60px);
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,rgba(34,211,238,0.14),transparent 60%);
+  bottom:-250px;
+  right:-250px;
+  filter:blur(80px);
 }
 
-/* NAVBAR */
+/* NAV */
 .navbar{
   position:fixed;
   top:0;
@@ -69,8 +69,8 @@ body::after{
   justify-content:space-between;
   padding:18px 8%;
 
-  background:rgba(0,0,0,0.25);
-  backdrop-filter:blur(18px);
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
   z-index:1000;
 }
@@ -78,7 +78,7 @@ body::after{
 .logo{
   font-size:22px;
   font-weight:900;
-  background:linear-gradient(45deg,var(--blue),var(--cyan));
+  background:linear-gradient(45deg,var(--blue),var(--cyan),var(--purple));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -90,8 +90,8 @@ body::after{
 }
 
 .navbar a{
-  color:var(--muted);
   text-decoration:none;
+  color:var(--muted);
   transition:.3s;
 }
 
@@ -99,7 +99,7 @@ body::after{
   color:#fff;
 }
 
-/* HERO STORY SECTION */
+/* HERO CINEMATIC */
 .hero{
   height:100vh;
   display:flex;
@@ -108,95 +108,88 @@ body::after{
   align-items:center;
   text-align:center;
   padding:0 20px;
+  position:relative;
 }
 
 .hero h1{
-  font-size:95px;
+  font-size:100px;
   font-weight:900;
-  letter-spacing:3px;
+  letter-spacing:4px;
 
   background:linear-gradient(45deg,#fff,var(--cyan),var(--blue));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
   opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s forwards;
+  transform:translateY(40px);
+  animation:fadeUp 1.2s forwards;
 }
 
 .hero p{
   margin-top:20px;
-  max-width:650px;
+  max-width:700px;
   color:var(--muted);
-  line-height:1.9;
   font-size:18px;
+  line-height:1.9;
 
   opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s forwards .3s;
+  transform:translateY(40px);
+  animation:fadeUp 1.2s forwards .3s;
 }
 
 .btn{
   margin-top:30px;
-  padding:14px 42px;
+  padding:15px 45px;
   border:none;
-  border-radius:14px;
-  cursor:pointer;
+  border-radius:16px;
 
   background:linear-gradient(45deg,var(--blue),var(--cyan));
   color:#fff;
   font-weight:700;
+  cursor:pointer;
 
-  transition:.3s;
+  transition:.4s;
 
   opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1s forwards .6s;
+  transform:translateY(40px);
+  animation:fadeUp 1.2s forwards .6s;
 }
 
 .btn:hover{
-  transform:translateY(-8px) scale(1.03);
-  box-shadow:0 0 30px rgba(79,140,255,0.4);
+  transform:translateY(-8px) scale(1.05);
+  box-shadow:0 0 40px rgba(79,140,255,0.4);
 }
 
-/* ANIMATION */
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* SECTION */
+/* SECTIONS */
 section{
-  padding:90px 8%;
+  padding:100px 8%;
 }
 
 /* TITLE */
 .title{
   text-align:center;
-  font-size:36px;
-  margin-bottom:50px;
+  font-size:38px;
+  margin-bottom:60px;
 }
 
-/* STORY CARDS */
+/* AI GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
 }
 
-/* GLASS CARD */
+/* GLASS AI CARDS */
 .card{
-  background:var(--card);
+  background:var(--glass);
   border:1px solid var(--border);
-  backdrop-filter:blur(18px);
-  border-radius:18px;
+  backdrop-filter:blur(20px);
+  border-radius:20px;
   padding:25px;
 
   opacity:0;
-  transform:translateY(40px);
-  transition:.5s;
+  transform:translateY(50px);
+  transition:.6s;
 }
 
 .card.show{
@@ -205,33 +198,34 @@ section{
 }
 
 .card:hover{
-  transform:translateY(-10px) scale(1.03);
-  border-color:rgba(79,140,255,0.4);
+  transform:translateY(-12px) scale(1.03);
+  border-color:rgba(79,140,255,0.5);
 }
 
-/* ABOUT */
+/* ABOUT AI */
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:25px;
+  gap:30px;
 }
 
 .about p{
   color:var(--muted);
-  line-height:1.8;
+  line-height:1.9;
 }
 
-.box{
+/* AI CORE BOX */
+.core{
   display:flex;
   justify-content:center;
   align-items:center;
 
-  font-size:70px;
+  font-size:80px;
   color:var(--cyan);
 
   background:rgba(255,255,255,0.03);
   border:1px solid var(--border);
-  border-radius:18px;
+  border-radius:20px;
 }
 
 /* FOOTER */
@@ -242,9 +236,17 @@ footer{
   border-top:1px solid var(--border);
 }
 
+/* ANIMATION */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
 /* MOBILE */
 @media(max-width:900px){
-  .hero h1{font-size:50px}
+  .hero h1{font-size:52px}
   .about{grid-template-columns:1fr}
   .navbar ul{display:none}
 }
@@ -256,75 +258,77 @@ footer{
 <body>
 
 <header class="navbar">
-  <div class="logo">QUAVRON</div>
-
+  <div class="logo">QUAVRON AI</div>
   <ul>
     <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
+    <li><a href="#">AI</a></li>
+    <li><a href="#">Systems</a></li>
   </ul>
 </header>
 
 <section class="hero">
-  <h1>QUAVRON</h1>
-  <p>We build next-generation digital systems with modern UI/UX and high performance engineering.</p>
-  <button class="btn">ابدأ الآن</button>
+  <h1>QUAVRON AI</h1>
+  <p>
+    We design intelligent digital systems powered by modern AI architecture,
+    UI/UX engineering, and futuristic experiences.
+  </p>
+  <button class="btn">Explore AI</button>
 </section>
 
 <section>
-  <h2 class="title">قصة الشركة</h2>
+  <h2 class="title">AI Experience</h2>
 
   <div class="about">
 
     <div class="card">
       <p>
-        QUAVRON V2 ليست مجرد موقع، بل تجربة رقمية حديثة تعتمد على تصميم تفاعلي
-        وتقنيات واجهات المستقبل.
+        QUAVRON AI represents the next generation of digital platforms,
+        combining intelligent systems with cinematic user experience.
       </p>
     </div>
 
-    <div class="box">⚡</div>
+    <div class="core">🧠</div>
 
   </div>
 </section>
 
 <section>
-  <h2 class="title">الخدمات</h2>
+  <h2 class="title">AI Services</h2>
 
   <div class="grid">
 
     <div class="card">
-      <h3>Web Apps</h3>
-      <p>تطوير تطبيقات ويب حديثة وسريعة.</p>
+      <h3>AI Web Systems</h3>
+      <p>Smart websites powered by modern architecture.</p>
     </div>
 
     <div class="card">
-      <h3>Cloud Systems</h3>
-      <p>بنية سحابية قوية وقابلة للتوسع.</p>
+      <h3>Automation</h3>
+      <p>Intelligent workflow automation systems.</p>
     </div>
 
     <div class="card">
-      <h3>Security</h3>
-      <p>حماية الأنظمة الرقمية.</p>
+      <h3>Security AI</h3>
+      <p>Advanced cyber protection systems.</p>
     </div>
 
   </div>
 </section>
 
 <footer>
-© 2026 QUAVRON V2
+© 2026 QUAVRON AI
 </footer>
 
 <script>
 
-/* Scroll reveal */
+/* Scroll Animation */
 const cards = document.querySelectorAll('.card');
 
 window.addEventListener('scroll',()=>{
-  cards.forEach(card=>{
-    const rect = card.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 80){
-      card.classList.add('show');
+  cards.forEach(c=>{
+    const r = c.getBoundingClientRect();
+    if(r.top < window.innerHeight - 80){
+      c.classList.add('show');
     }
   });
 });
