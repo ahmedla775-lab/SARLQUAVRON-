@@ -5,27 +5,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUAVRON | Future AI Company</title>
+<title>QUAVRON TECH</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================
-   GLOBAL DESIGN SYSTEM
-===================== */
-
 :root{
-  --bg:#05060c;
+  --bg:#0a0a0a;
   --text:#ffffff;
-  --muted:#9ca3af;
+  --muted:#a1a1aa;
 
-  --glass:rgba(255,255,255,0.04);
-  --border:rgba(255,255,255,0.08);
+  --white:#fff;
+  --glass:rgba(255,255,255,0.05);
 
-  --blue:#4f8cff;
-  --cyan:#22d3ee;
-  --purple:#a78bfa;
+  --accent:#00e5ff;
 }
 
 *{
@@ -41,67 +35,28 @@ body{
   overflow-x:hidden;
 }
 
-/* =====================
-   BACKGROUND EFFECTS
-===================== */
-
-body::before{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  background:radial-gradient(circle,rgba(79,140,255,0.18),transparent 65%);
-  top:-250px;
-  left:-250px;
-  filter:blur(70px);
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  background:radial-gradient(circle,rgba(34,211,238,0.14),transparent 65%);
-  bottom:-250px;
-  right:-250px;
-  filter:blur(70px);
-}
-
-/* =====================
-   NAVBAR
-===================== */
-
+/* NAV */
 .navbar{
   position:fixed;
   top:0;
   width:100%;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-
   padding:18px 8%;
-  background:rgba(0,0,0,0.3);
+  background:rgba(0,0,0,0.6);
   backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
   z-index:1000;
 }
 
 .logo{
-  font-size:22px;
   font-weight:900;
-  background:linear-gradient(45deg,var(--blue),var(--cyan),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.navbar ul{
-  display:flex;
-  gap:18px;
-  list-style:none;
+  font-size:22px;
+  color:var(--white);
 }
 
 .navbar a{
   color:var(--muted);
+  margin:0 10px;
   text-decoration:none;
   transition:.3s;
 }
@@ -110,10 +65,7 @@ body::after{
   color:#fff;
 }
 
-/* =====================
-   HERO SECTION
-===================== */
-
+/* HERO (XIAOMI STYLE) */
 .hero{
   height:100vh;
   display:flex;
@@ -121,75 +73,73 @@ body::after{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:0 20px;
+
+  background:radial-gradient(circle at center, rgba(0,229,255,0.15), transparent 60%);
 }
 
 .hero h1{
-  font-size:95px;
+  font-size:90px;
   font-weight:900;
-
-  background:linear-gradient(45deg,#fff,var(--cyan),var(--blue));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  animation:fadeUp 1s ease forwards;
-  opacity:0;
-  transform:translateY(30px);
+  letter-spacing:2px;
 }
 
 .hero p{
-  margin-top:20px;
-  max-width:700px;
   color:var(--muted);
-  line-height:1.9;
-  font-size:18px;
-
-  animation:fadeUp 1s ease forwards .3s;
-  opacity:0;
-  transform:translateY(30px);
+  max-width:600px;
+  margin-top:15px;
+  line-height:1.8;
 }
 
 .btn{
-  margin-top:30px;
-  padding:15px 45px;
+  margin-top:25px;
+  padding:14px 40px;
   border:none;
-  border-radius:14px;
-
-  background:linear-gradient(45deg,var(--blue),var(--cyan));
-  color:#fff;
+  background:var(--accent);
+  color:#000;
   font-weight:700;
+  border-radius:30px;
   cursor:pointer;
-
   transition:.3s;
-
-  animation:fadeUp 1s ease forwards .6s;
-  opacity:0;
-  transform:translateY(30px);
 }
 
 .btn:hover{
-  transform:translateY(-8px) scale(1.05);
-  box-shadow:0 0 35px rgba(79,140,255,0.4);
+  transform:scale(1.05);
 }
 
-/* =====================
-   SECTIONS
-===================== */
-
+/* SECTION */
 section{
   padding:100px 8%;
 }
 
-.title{
-  text-align:center;
-  font-size:36px;
-  margin-bottom:60px;
+/* PRODUCT STYLE */
+.product{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
 }
 
-/* =====================
-   GRID CARDS
-===================== */
+.product img{
+  width:100%;
+  border-radius:20px;
+  transition:.5s;
+}
 
+.product img:hover{
+  transform:scale(1.05);
+}
+
+.product h2{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.product p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -198,84 +148,30 @@ section{
 
 .card{
   background:var(--glass);
-  border:1px solid var(--border);
-  backdrop-filter:blur(20px);
-  border-radius:18px;
   padding:25px;
-
-  opacity:0;
-  transform:translateY(40px);
-  transition:.6s;
-}
-
-.card.show{
-  opacity:1;
-  transform:translateY(0);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.1);
+  transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-12px) scale(1.03);
-  border-color:rgba(79,140,255,0.5);
+  transform:translateY(-10px);
+  border-color:var(--accent);
 }
 
-/* =====================
-   ABOUT
-===================== */
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
-
-.about p{
-  color:var(--muted);
-  line-height:1.9;
-}
-
-.core{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  font-size:80px;
-  color:var(--cyan);
-
-  background:rgba(255,255,255,0.03);
-  border:1px solid var(--border);
-  border-radius:20px;
-}
-
-/* =====================
-   FOOTER
-===================== */
-
+/* FOOTER */
 footer{
   text-align:center;
   padding:30px;
   color:var(--muted);
-  border-top:1px solid var(--border);
+  border-top:1px solid rgba(255,255,255,0.1);
 }
 
-/* =====================
-   ANIMATION
-===================== */
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* =====================
-   MOBILE
-===================== */
-
+/* MOBILE */
 @media(max-width:900px){
-  .hero h1{font-size:48px}
-  .about{grid-template-columns:1fr}
-  .navbar ul{display:none}
+  .hero h1{font-size:45px}
+  .product{grid-template-columns:1fr}
+  .navbar nav{display:none}
 }
 
 </style>
@@ -284,85 +180,59 @@ footer{
 
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">QUAVRON</div>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-  </ul>
+  <nav>
+    <a href="#">الرئيسية</a>
+    <a href="#">المنتجات</a>
+    <a href="#">الدعم</a>
+  </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <h1>QUAVRON</h1>
-  <p>We build next-generation AI-powered digital systems with modern UI/UX and scalable architecture.</p>
-  <button class="btn">ابدأ الآن</button>
+  <h1>QUAVRON TECH</h1>
+  <p>نصنع مستقبل التكنولوجيا عبر أنظمة ذكية وتجربة مستخدم احترافية</p>
+  <button class="btn">اكتشف الآن</button>
 </section>
 
-<!-- ABOUT -->
-<section>
-  <h2 class="title">عن الشركة</h2>
-
-  <div class="about">
-
-    <div class="card">
-      <p>
-        QUAVRON هي شركة تقنية حديثة متخصصة في بناء الأنظمة الرقمية الذكية
-        وتطوير واجهات المستقبل وتجربة المستخدم.
-      </p>
-    </div>
-
-    <div class="core">🧠</div>
-
+<section class="product">
+  <div>
+    <h2>Smart Systems</h2>
+    <p>
+      منصة تقنية متقدمة تجمع بين الذكاء الاصطناعي والبنية السحابية لتقديم أداء عالي وتجربة سلسة.
+    </p>
   </div>
+
+  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" />
 </section>
 
-<!-- SERVICES -->
 <section>
-  <h2 class="title">الخدمات</h2>
+  <h2 style="text-align:center; font-size:40px; margin-bottom:40px;">Features</h2>
 
   <div class="grid">
 
     <div class="card">
-      <h3>Web AI Systems</h3>
-      <p>تطوير مواقع ذكية حديثة.</p>
+      <h3>Speed</h3>
+      <p>أداء عالي وسرعة استجابة.</p>
     </div>
 
     <div class="card">
-      <h3>Cloud Platforms</h3>
-      <p>أنظمة سحابية قابلة للتوسع.</p>
+      <h3>AI</h3>
+      <p>أنظمة ذكية متقدمة.</p>
     </div>
 
     <div class="card">
-      <h3>Cyber Security</h3>
-      <p>حماية متقدمة للأنظمة الرقمية.</p>
+      <h3>Security</h3>
+      <p>حماية قوية للبيانات.</p>
     </div>
 
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-© 2026 QUAVRON — All Rights Reserved
+© 2026 QUAVRON TECH
 </footer>
 
-<script>
-
-/* SCROLL ANIMATION */
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll',()=>{
-  cards.forEach(card=>{
-    const rect = card.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 80){
-      card.classList.add('show');
-    }
-  });
-});
-
-</script>
-
 </body>
+
 </html>
