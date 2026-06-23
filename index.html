@@ -5,258 +5,237 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUAVRON | Apple Level UI</title>
+<title>QUAVRON ULTRA 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-:root {
-  --bg: #070a12;
-  --surface: rgba(255,255,255,0.04);
-  --border: rgba(255,255,255,0.08);
+:root{
+  --bg:#050712;
+  --card:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);
 
-  --text: #ffffff;
-  --muted: #9ca3af;
+  --text:#fff;
+  --muted:#9ca3af;
 
-  --accent: #4f8cff;
-  --accent2: #22d3ee;
+  --blue:#4f8cff;
+  --cyan:#22d3ee;
+  --purple:#a78bfa;
 }
 
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-body {
-  font-family: 'Cairo', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
+/* 🔮 BACKGROUND ULTRA DEPTH */
+body::before{
+  content:"";
+  position:fixed;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(79,140,255,0.18),transparent 70%);
+  top:-250px;left:-250px;
+  filter:blur(70px);
 }
 
-/* 🌟 Mouse Glow */
-.glow {
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(79,140,255,0.25), transparent 70%);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  filter: blur(40px);
-  z-index: 0;
-}
-
-/* BACKGROUND DEPTH */
-body::before {
-  content: "";
-  position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(79,140,255,0.15), transparent 70%);
-  top: -200px;
-  left: -200px;
-  filter: blur(60px);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(34,211,238,0.12), transparent 70%);
-  bottom: -200px;
-  right: -200px;
-  filter: blur(60px);
+body::after{
+  content:"";
+  position:fixed;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(34,211,238,0.14),transparent 70%);
+  bottom:-250px;right:-250px;
+  filter:blur(70px);
 }
 
 /* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 18px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  z-index: 100;
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:18px 8%;
+  background:rgba(0,0,0,0.25);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: 900;
-  background: linear-gradient(45deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.logo{
+  font-size:22px;
+  font-weight:900;
+  background:linear-gradient(45deg,var(--blue),var(--cyan),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
+.navbar ul{
+  display:flex;
+  gap:20px;
+  list-style:none;
 }
 
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  transition: 0.3s;
+.navbar a{
+  text-decoration:none;
+  color:var(--muted);
+  transition:.3s;
 }
 
-.nav-links a:hover {
-  color: white;
+.navbar a:hover{
+  color:#fff;
 }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
+/* HERO ULTRA */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 20px;
 }
 
-.hero h1 {
-  font-size: 80px;
-  font-weight: 900;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s ease forwards;
+.hero h1{
+  font-size:90px;
+  font-weight:900;
+  letter-spacing:2px;
+
+  background:linear-gradient(45deg,#fff,var(--cyan),var(--blue));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  opacity:0;
+  transform:translateY(20px);
+  animation:fade 1s forwards;
 }
 
-.hero p {
-  max-width: 650px;
-  margin-top: 20px;
-  color: var(--muted);
-  line-height: 1.9;
-  font-size: 18px;
+.hero p{
+  margin-top:20px;
+  max-width:650px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:18px;
 
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 0.3s;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fade 1s forwards .3s;
 }
 
-.btn {
-  margin-top: 30px;
-  padding: 14px 40px;
-  border-radius: 14px;
-  border: none;
-  cursor: pointer;
+.btn{
+  margin-top:30px;
+  padding:14px 40px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
 
-  background: linear-gradient(45deg, var(--accent), var(--accent2));
-  color: white;
-  font-weight: 700;
+  background:linear-gradient(45deg,var(--blue),var(--cyan));
+  color:#fff;
+  font-weight:700;
 
-  transition: 0.3s;
+  transition:.3s;
 
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 0.6s;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fade 1s forwards .6s;
 }
 
-.btn:hover {
-  transform: translateY(-5px) scale(1.03);
-}
-
-/* ANIMATION */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.btn:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 0 30px rgba(79,140,255,0.4);
 }
 
 /* SECTIONS */
-section {
-  padding: 90px 8%;
-  position: relative;
-  z-index: 2;
+section{
+  padding:90px 8%;
 }
 
-.title {
-  text-align: center;
-  font-size: 34px;
-  margin-bottom: 50px;
-}
-
-/* CARDS */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(18px);
-  border-radius: 18px;
-  padding: 25px;
-
-  transition: 0.4s;
-
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
-  border-color: rgba(79,140,255,0.4);
-}
-
-/* ABOUT */
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
-}
-
-.about p {
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-
-  font-size: 60px;
-  color: var(--accent2);
+.title{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:50px;
 }
 
 /* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* GLASS CARDS ULTRA */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  border-radius:18px;
+  padding:25px;
+
+  transition:.4s;
+
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  border-color:rgba(79,140,255,0.4);
+}
+
+/* ABOUT ULTRA */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.about p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:70px;
+  color:var(--cyan);
+
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:18px;
 }
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* ANIMATION */
+@keyframes fade{
+  to{opacity:1;transform:translateY(0);}
 }
 
 /* MOBILE */
-@media (max-width: 900px) {
-  .hero h1 { font-size: 45px; }
-  .about { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
+@media(max-width:900px){
+  .hero h1{font-size:48px}
+  .about{grid-template-columns:1fr}
+  .navbar ul{display:none}
 }
 
 </style>
@@ -265,21 +244,18 @@ footer {
 
 <body>
 
-<div class="glow" id="glow"></div>
-
 <header class="navbar">
-  <div class="logo">QUAVRON</div>
-
-  <ul class="nav-links">
-    <li><a href="#">الرئيسية</a></li>
-    <li><a href="#">عن الشركة</a></li>
-    <li><a href="#">الخدمات</a></li>
+  <div class="logo">QUAVRON ULTRA</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
   </ul>
 </header>
 
 <section class="hero">
   <h1>QUAVRON</h1>
-  <p>مستقبل التقنية يبدأ من هنا — تصميم، برمجة، وأنظمة ذكية</p>
+  <p>We build next-generation digital systems with ultra modern design and performance.</p>
   <button class="btn">ابدأ الآن</button>
 </section>
 
@@ -288,14 +264,14 @@ footer {
 
   <div class="about">
 
-    <div class="card">  
+    <div class="card">
       <p>
-        QUAVRON منصة تقنية حديثة تهدف إلى بناء أنظمة رقمية متطورة
-        تجمع بين السرعة، التصميم، والذكاء البرمجي.
+        QUAVRON ULTRA هي منصة تقنية متقدمة تركز على بناء أنظمة رقمية مستقبلية
+        تجمع بين التصميم الحديث والأداء العالي.
       </p>
     </div>
 
-    <div class="box">⚙️</div>
+    <div class="box">⚡</div>
 
   </div>
 </section>
@@ -306,45 +282,37 @@ footer {
   <div class="grid">
 
     <div class="card">
-      <h3>تطوير المواقع</h3>
-      <p>مواقع حديثة بسرعة عالية وتجربة مستخدم ممتازة.</p>
+      <h3>Web Development</h3>
+      <p>مواقع حديثة عالية الأداء.</p>
     </div>
 
     <div class="card">
-      <h3>Cloud</h3>
-      <p>حلول سحابية مرنة وقوية.</p>
+      <h3>Cloud Systems</h3>
+      <p>حلول سحابية قابلة للتوسع.</p>
     </div>
 
     <div class="card">
-      <h3>Security</h3>
-      <p>حماية الأنظمة والبيانات الرقمية.</p>
+      <h3>Cyber Security</h3>
+      <p>حماية متقدمة للأنظمة.</p>
     </div>
 
   </div>
 </section>
 
 <footer>
-  © 2026 QUAVRON
+© 2026 QUAVRON ULTRA
 </footer>
 
 <script>
 
-/* 🌟 Mouse Glow */
-const glow = document.getElementById("glow");
+/* Scroll reveal */
+const cards = document.querySelectorAll('.card');
 
-document.addEventListener("mousemove", (e) => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
-
-/* 📦 Scroll Reveal */
-const cards = document.querySelectorAll(".card");
-
-window.addEventListener("scroll", () => {
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      card.classList.add("show");
+window.addEventListener('scroll',()=>{
+  cards.forEach(c=>{
+    const r = c.getBoundingClientRect();
+    if(r.top < window.innerHeight - 80){
+      c.classList.add('show');
     }
   });
 });
