@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUAVRON 2026</title>
+<title>QUAVRON | Apple Level UI</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
@@ -37,7 +37,19 @@ body {
   overflow-x: hidden;
 }
 
-/* ====== BACKGROUND DEPTH ====== */
+/* 🌟 Mouse Glow */
+.glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(79,140,255,0.25), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+/* BACKGROUND DEPTH */
 body::before {
   content: "";
   position: fixed;
@@ -71,8 +83,9 @@ body::after {
   align-items: center;
 
   background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
+  z-index: 100;
 }
 
 .logo {
@@ -99,7 +112,7 @@ body::after {
   color: white;
 }
 
-/* HERO (MODERN 2026 STYLE) */
+/* HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -111,9 +124,11 @@ body::after {
 }
 
 .hero h1 {
-  font-size: 78px;
+  font-size: 80px;
   font-weight: 900;
-  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
 }
 
 .hero p {
@@ -122,12 +137,17 @@ body::after {
   color: var(--muted);
   line-height: 1.9;
   font-size: 18px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
 .btn {
   margin-top: 30px;
   padding: 14px 40px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
   cursor: pointer;
 
@@ -136,37 +156,59 @@ body::after {
   font-weight: 700;
 
   transition: 0.3s;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.6s;
 }
 
 .btn:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.03);
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* SECTIONS */
 section {
   padding: 90px 8%;
+  position: relative;
+  z-index: 2;
 }
 
-/* SECTION TITLE */
 .title {
   text-align: center;
   font-size: 34px;
   margin-bottom: 50px;
 }
 
-/* GLASS CARDS (2026 STYLE) */
+/* CARDS */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
   border-radius: 18px;
   padding: 25px;
 
-  transition: 0.3s;
+  transition: 0.4s;
+
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-10px) scale(1.02);
   border-color: rgba(79,140,255,0.4);
 }
 
@@ -183,32 +225,23 @@ section {
 }
 
 .box {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 18px;
 
   font-size: 60px;
   color: var(--accent2);
 }
 
-/* SERVICES */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
-}
-
-.card h3 {
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: var(--muted);
-  line-height: 1.7;
 }
 
 /* FOOTER */
@@ -221,17 +254,9 @@ footer {
 
 /* MOBILE */
 @media (max-width: 900px) {
-  .hero h1 {
-    font-size: 45px;
-  }
-
-  .about {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-links {
-    display: none;
-  }
+  .hero h1 { font-size: 45px; }
+  .about { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
 }
 
 </style>
@@ -240,7 +265,8 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
+<div class="glow" id="glow"></div>
+
 <header class="navbar">
   <div class="logo">QUAVRON</div>
 
@@ -251,34 +277,29 @@ footer {
   </ul>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <h1>QUAVRON</h1>
-  <p>نحو مستقبل رقمي أكثر ذكاءً — تصميم، برمجة، وتقنيات حديثة بأسلوب 2026</p>
+  <p>مستقبل التقنية يبدأ من هنا — تصميم، برمجة، وأنظمة ذكية</p>
   <button class="btn">ابدأ الآن</button>
 </section>
 
-<!-- ABOUT -->
 <section>
   <h2 class="title">عن الشركة</h2>
 
   <div class="about">
 
-    <div class="card">
+    <div class="card">  
       <p>
-        QUAVRON منصة تقنية حديثة تعتمد على تصميم أنظمة مستقبلية
-        تجمع بين الأداء، البساطة، والاحتراف.
+        QUAVRON منصة تقنية حديثة تهدف إلى بناء أنظمة رقمية متطورة
+        تجمع بين السرعة، التصميم، والذكاء البرمجي.
       </p>
     </div>
 
-    <div class="box">
-      ⚙️
-    </div>
+    <div class="box">⚙️</div>
 
   </div>
 </section>
 
-<!-- SERVICES -->
 <section>
   <h2 class="title">الخدمات</h2>
 
@@ -286,26 +307,49 @@ footer {
 
     <div class="card">
       <h3>تطوير المواقع</h3>
-      <p>مواقع سريعة وحديثة بتجربة مستخدم احترافية.</p>
+      <p>مواقع حديثة بسرعة عالية وتجربة مستخدم ممتازة.</p>
     </div>
 
     <div class="card">
-      <h3>الأنظمة السحابية</h3>
-      <p>حلول Cloud آمنة وقابلة للتوسع.</p>
+      <h3>Cloud</h3>
+      <p>حلول سحابية مرنة وقوية.</p>
     </div>
 
     <div class="card">
-      <h3>الأمن السيبراني</h3>
-      <p>حماية البيانات والبنية الرقمية.</p>
+      <h3>Security</h3>
+      <p>حماية الأنظمة والبيانات الرقمية.</p>
     </div>
 
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  © 2026 QUAVRON — All rights reserved
+  © 2026 QUAVRON
 </footer>
+
+<script>
+
+/* 🌟 Mouse Glow */
+const glow = document.getElementById("glow");
+
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+
+/* 📦 Scroll Reveal */
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      card.classList.add("show");
+    }
+  });
+});
+
+</script>
 
 </body>
 </html>
