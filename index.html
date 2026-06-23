@@ -5,23 +5,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QUAVRON AI</title>
+<title>QUAVRON | Future AI Company</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================
+   GLOBAL DESIGN SYSTEM
+===================== */
 
 :root{
   --bg:#05060c;
   --text:#ffffff;
   --muted:#9ca3af;
 
+  --glass:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);
+
   --blue:#4f8cff;
   --cyan:#22d3ee;
   --purple:#a78bfa;
-
-  --glass:rgba(255,255,255,0.04);
-  --border:rgba(255,255,255,0.08);
 }
 
 *{
@@ -37,38 +41,45 @@ body{
   overflow-x:hidden;
 }
 
-/* 🌌 CINEMATIC LIGHTS */
+/* =====================
+   BACKGROUND EFFECTS
+===================== */
+
 body::before{
   content:"";
   position:fixed;
-  width:800px;
-  height:800px;
-  background:radial-gradient(circle,rgba(79,140,255,0.18),transparent 60%);
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,rgba(79,140,255,0.18),transparent 65%);
   top:-250px;
   left:-250px;
-  filter:blur(80px);
+  filter:blur(70px);
 }
 
 body::after{
   content:"";
   position:fixed;
-  width:800px;
-  height:800px;
-  background:radial-gradient(circle,rgba(34,211,238,0.14),transparent 60%);
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,rgba(34,211,238,0.14),transparent 65%);
   bottom:-250px;
   right:-250px;
-  filter:blur(80px);
+  filter:blur(70px);
 }
 
-/* NAV */
+/* =====================
+   NAVBAR
+===================== */
+
 .navbar{
   position:fixed;
   top:0;
   width:100%;
   display:flex;
   justify-content:space-between;
-  padding:18px 8%;
+  align-items:center;
 
+  padding:18px 8%;
   background:rgba(0,0,0,0.3);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
@@ -90,8 +101,8 @@ body::after{
 }
 
 .navbar a{
-  text-decoration:none;
   color:var(--muted);
+  text-decoration:none;
   transition:.3s;
 }
 
@@ -99,7 +110,10 @@ body::after{
   color:#fff;
 }
 
-/* HERO CINEMATIC */
+/* =====================
+   HERO SECTION
+===================== */
+
 .hero{
   height:100vh;
   display:flex;
@@ -108,87 +122,89 @@ body::after{
   align-items:center;
   text-align:center;
   padding:0 20px;
-  position:relative;
 }
 
 .hero h1{
-  font-size:100px;
+  font-size:95px;
   font-weight:900;
-  letter-spacing:4px;
 
   background:linear-gradient(45deg,#fff,var(--cyan),var(--blue));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
+  animation:fadeUp 1s ease forwards;
   opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1.2s forwards;
+  transform:translateY(30px);
 }
 
 .hero p{
   margin-top:20px;
   max-width:700px;
   color:var(--muted);
-  font-size:18px;
   line-height:1.9;
+  font-size:18px;
 
+  animation:fadeUp 1s ease forwards .3s;
   opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1.2s forwards .3s;
+  transform:translateY(30px);
 }
 
 .btn{
   margin-top:30px;
   padding:15px 45px;
   border:none;
-  border-radius:16px;
+  border-radius:14px;
 
   background:linear-gradient(45deg,var(--blue),var(--cyan));
   color:#fff;
   font-weight:700;
   cursor:pointer;
 
-  transition:.4s;
+  transition:.3s;
 
+  animation:fadeUp 1s ease forwards .6s;
   opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp 1.2s forwards .6s;
+  transform:translateY(30px);
 }
 
 .btn:hover{
   transform:translateY(-8px) scale(1.05);
-  box-shadow:0 0 40px rgba(79,140,255,0.4);
+  box-shadow:0 0 35px rgba(79,140,255,0.4);
 }
 
-/* SECTIONS */
+/* =====================
+   SECTIONS
+===================== */
+
 section{
   padding:100px 8%;
 }
 
-/* TITLE */
 .title{
   text-align:center;
-  font-size:38px;
+  font-size:36px;
   margin-bottom:60px;
 }
 
-/* AI GRID */
+/* =====================
+   GRID CARDS
+===================== */
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
 
-/* GLASS AI CARDS */
 .card{
   background:var(--glass);
   border:1px solid var(--border);
   backdrop-filter:blur(20px);
-  border-radius:20px;
+  border-radius:18px;
   padding:25px;
 
   opacity:0;
-  transform:translateY(50px);
+  transform:translateY(40px);
   transition:.6s;
 }
 
@@ -202,7 +218,10 @@ section{
   border-color:rgba(79,140,255,0.5);
 }
 
-/* ABOUT AI */
+/* =====================
+   ABOUT
+===================== */
+
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -214,7 +233,6 @@ section{
   line-height:1.9;
 }
 
-/* AI CORE BOX */
 .core{
   display:flex;
   justify-content:center;
@@ -228,7 +246,10 @@ section{
   border-radius:20px;
 }
 
-/* FOOTER */
+/* =====================
+   FOOTER
+===================== */
+
 footer{
   text-align:center;
   padding:30px;
@@ -236,7 +257,10 @@ footer{
   border-top:1px solid var(--border);
 }
 
-/* ANIMATION */
+/* =====================
+   ANIMATION
+===================== */
+
 @keyframes fadeUp{
   to{
     opacity:1;
@@ -244,9 +268,12 @@ footer{
   }
 }
 
-/* MOBILE */
+/* =====================
+   MOBILE
+===================== */
+
 @media(max-width:900px){
-  .hero h1{font-size:52px}
+  .hero h1{font-size:48px}
   .about{grid-template-columns:1fr}
   .navbar ul{display:none}
 }
@@ -257,33 +284,33 @@ footer{
 
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
-  <div class="logo">QUAVRON AI</div>
+  <div class="logo">QUAVRON</div>
   <ul>
     <li><a href="#">Home</a></li>
-    <li><a href="#">AI</a></li>
-    <li><a href="#">Systems</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
   </ul>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>QUAVRON AI</h1>
-  <p>
-    We design intelligent digital systems powered by modern AI architecture,
-    UI/UX engineering, and futuristic experiences.
-  </p>
-  <button class="btn">Explore AI</button>
+  <h1>QUAVRON</h1>
+  <p>We build next-generation AI-powered digital systems with modern UI/UX and scalable architecture.</p>
+  <button class="btn">ابدأ الآن</button>
 </section>
 
+<!-- ABOUT -->
 <section>
-  <h2 class="title">AI Experience</h2>
+  <h2 class="title">عن الشركة</h2>
 
   <div class="about">
 
     <div class="card">
       <p>
-        QUAVRON AI represents the next generation of digital platforms,
-        combining intelligent systems with cinematic user experience.
+        QUAVRON هي شركة تقنية حديثة متخصصة في بناء الأنظمة الرقمية الذكية
+        وتطوير واجهات المستقبل وتجربة المستخدم.
       </p>
     </div>
 
@@ -292,43 +319,45 @@ footer{
   </div>
 </section>
 
+<!-- SERVICES -->
 <section>
-  <h2 class="title">AI Services</h2>
+  <h2 class="title">الخدمات</h2>
 
   <div class="grid">
 
     <div class="card">
-      <h3>AI Web Systems</h3>
-      <p>Smart websites powered by modern architecture.</p>
+      <h3>Web AI Systems</h3>
+      <p>تطوير مواقع ذكية حديثة.</p>
     </div>
 
     <div class="card">
-      <h3>Automation</h3>
-      <p>Intelligent workflow automation systems.</p>
+      <h3>Cloud Platforms</h3>
+      <p>أنظمة سحابية قابلة للتوسع.</p>
     </div>
 
     <div class="card">
-      <h3>Security AI</h3>
-      <p>Advanced cyber protection systems.</p>
+      <h3>Cyber Security</h3>
+      <p>حماية متقدمة للأنظمة الرقمية.</p>
     </div>
 
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-© 2026 QUAVRON AI
+© 2026 QUAVRON — All Rights Reserved
 </footer>
 
 <script>
 
-/* Scroll Animation */
+/* SCROLL ANIMATION */
 const cards = document.querySelectorAll('.card');
 
 window.addEventListener('scroll',()=>{
-  cards.forEach(c=>{
-    const r = c.getBoundingClientRect();
-    if(r.top < window.innerHeight - 80){
-      c.classList.add('show');
+  cards.forEach(card=>{
+    const rect = card.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 80){
+      card.classList.add('show');
     }
   });
 });
