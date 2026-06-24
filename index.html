@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>QUAVRON SARL | Engineering The Future</title>
 
@@ -14,287 +14,418 @@
 
 <style>
 
+/* ================= ROOT ================= */
+
 :root{
---bg:#050505;
---panel:#0f1117;
---cyan:#00e5ff;
---purple:#6d28ff;
---text:#ffffff;
---muted:#94a3b8;
---border:rgba(255,255,255,0.07);
+  --bg:#050505;
+  --panel:#0f1117;
+  --panel2:#111827;
+
+  --cyan:#00e5ff;
+  --purple:#7c3aed;
+
+  --text:#ffffff;
+  --muted:#94a3b8;
+
+  --border:rgba(255,255,255,0.08);
 }
 
+/* ================= RESET ================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:'Cairo',sans-serif;
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  position:relative;
 }
 
-/* الخلفية */
+/* ================= BACKGROUND ================= */
 
 body::before{
-content:'';
-position:fixed;
-width:600px;
-height:600px;
-background:rgba(0,229,255,0.06);
-filter:blur(120px);
-top:-200px;
-left:-200px;
-z-index:-1;
+  content:'';
+  position:fixed;
+  width:600px;
+  height:600px;
+  top:-250px;
+  left:-250px;
+  background:rgba(0,229,255,0.08);
+  filter:blur(120px);
+  z-index:-1;
 }
 
 body::after{
-content:'';
-position:fixed;
-width:600px;
-height:600px;
-background:rgba(109,40,255,0.08);
-filter:blur(120px);
-bottom:-250px;
-right:-250px;
-z-index:-1;
+  content:'';
+  position:fixed;
+  width:600px;
+  height:600px;
+  bottom:-250px;
+  right:-250px;
+  background:rgba(124,58,237,0.08);
+  filter:blur(120px);
+  z-index:-1;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 7%;
-background:rgba(10,10,14,0.75);
-backdrop-filter:blur(18px);
-border-bottom:1px solid var(--border);
-z-index:9999;
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:18px 7%;
+
+  background:rgba(5,5,5,0.75);
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border-bottom:1px solid var(--border);
+
+  z-index:9999;
 }
 
 .logo{
-font-family:'Orbitron',sans-serif;
-font-size:24px;
-font-weight:900;
-background:linear-gradient(90deg,#fff,var(--cyan));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+  font-family:'Orbitron',sans-serif;
+  font-size:24px;
+  font-weight:900;
+
+  background:linear-gradient(90deg,#fff,var(--cyan));
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .nav-links{
-display:flex;
-gap:24px;
+  display:flex;
+  gap:24px;
 }
 
 .nav-links a{
-color:var(--muted);
-text-decoration:none;
-transition:0.3s;
-font-size:14px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
 }
 
 .nav-links a:hover{
-color:#fff;
+  color:#fff;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:120px 20px 80px;
-position:relative;
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:140px 20px 80px;
 }
 
 .hero-content{
-max-width:900px;
+  max-width:950px;
+}
+
+.hero-badge{
+  display:inline-block;
+
+  padding:10px 18px;
+
+  border:1px solid rgba(255,255,255,0.1);
+
+  border-radius:999px;
+
+  margin-bottom:28px;
+
+  color:var(--cyan);
+
+  font-size:14px;
+
+  background:rgba(255,255,255,0.03);
 }
 
 .hero h1{
-font-family:'Orbitron',sans-serif;
-font-size:clamp(40px,7vw,88px);
-font-weight:900;
-line-height:1.1;
-margin-bottom:25px;
+  font-family:'Orbitron',sans-serif;
 
-background:linear-gradient(180deg,#fff,#7dd3fc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+  font-size:clamp(42px,7vw,92px);
+
+  line-height:1.05;
+
+  margin-bottom:25px;
+
+  background:linear-gradient(180deg,#fff,#9ddcff);
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-color:var(--muted);
-font-size:20px;
-line-height:1.9;
-margin-bottom:40px;
+  color:var(--muted);
+
+  line-height:2;
+
+  font-size:20px;
+
+  max-width:800px;
+
+  margin:auto auto 40px;
 }
 
 .hero-buttons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
 }
 
+/* ================= BUTTONS ================= */
+
 .btn{
-padding:14px 32px;
-border-radius:60px;
-text-decoration:none;
-font-weight:700;
-transition:0.3s;
-display:inline-flex;
-align-items:center;
-justify-content:center;
+  padding:15px 34px;
+
+  border-radius:60px;
+
+  text-decoration:none;
+
+  font-weight:700;
+
+  transition:0.3s;
 }
 
 .btn-primary{
-background:#fff;
-color:#000;
+  background:#fff;
+  color:#000;
 }
 
 .btn-primary:hover{
-background:var(--cyan);
-transform:translateY(-3px);
+  background:var(--cyan);
+  transform:translateY(-4px);
 }
 
 .btn-secondary{
-border:1px solid rgba(255,255,255,0.15);
-color:#fff;
+  border:1px solid rgba(255,255,255,0.15);
+  color:#fff;
 }
 
 .btn-secondary:hover{
-border-color:var(--cyan);
-background:rgba(255,255,255,0.03);
+  border-color:var(--cyan);
+  background:rgba(255,255,255,0.03);
 }
 
-/* sections */
+/* ================= SECTION ================= */
 
 section{
-padding:120px 7%;
+  padding:110px 7%;
 }
 
 .section-title{
-text-align:center;
-margin-bottom:70px;
+  text-align:center;
+  margin-bottom:70px;
 }
 
 .section-title h2{
-font-size:42px;
-margin-bottom:15px;
+  font-size:42px;
+  margin-bottom:18px;
 }
 
 .section-title p{
-color:var(--muted);
-max-width:700px;
-margin:auto;
-line-height:1.8;
+  color:var(--muted);
+
+  max-width:720px;
+
+  margin:auto;
+
+  line-height:1.9;
 }
 
-/* cards */
+/* ================= GRID ================= */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+  gap:28px;
 }
 
+/* ================= CARDS ================= */
+
 .card{
-background:var(--panel);
-padding:35px;
-border-radius:24px;
-border:1px solid var(--border);
-transition:0.4s;
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+
+  padding:35px;
+
+  border-radius:24px;
+
+  border:1px solid var(--border);
+
+  transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-border-color:rgba(0,229,255,0.3);
+  transform:translateY(-8px);
+
+  border-color:rgba(0,229,255,0.3);
+
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card-icon{
+  width:60px;
+  height:60px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:18px;
+
+  margin-bottom:22px;
+
+  font-size:24px;
+
+  background:rgba(0,229,255,0.08);
+
+  border:1px solid rgba(0,229,255,0.1);
 }
 
 .card h3{
-margin-bottom:15px;
-font-size:22px;
+  margin-bottom:14px;
+  font-size:22px;
 }
 
 .card p{
-color:var(--muted);
-line-height:1.8;
+  color:var(--muted);
+  line-height:1.9;
 }
 
-/* stats */
+/* ================= STATS ================= */
 
 .stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-text-align:center;
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+  gap:28px;
 }
 
 .stat-box{
-background:var(--panel);
-padding:40px;
-border-radius:24px;
-border:1px solid var(--border);
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+
+  padding:40px;
+
+  border-radius:24px;
+
+  border:1px solid var(--border);
+
+  text-align:center;
 }
 
 .stat-box h3{
-font-size:48px;
-font-family:'Orbitron',sans-serif;
-color:var(--cyan);
-margin-bottom:10px;
+  font-family:'Orbitron',sans-serif;
+
+  font-size:48px;
+
+  color:var(--cyan);
+
+  margin-bottom:12px;
 }
 
 .stat-box p{
-color:var(--muted);
+  color:var(--muted);
 }
 
-/* footer */
+/* ================= CTA ================= */
+
+.cta{
+  text-align:center;
+
+  background:linear-gradient(
+    135deg,
+    rgba(0,229,255,0.08),
+    rgba(124,58,237,0.08)
+  );
+
+  border:1px solid var(--border);
+
+  border-radius:30px;
+
+  padding:70px 30px;
+}
+
+.cta h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.cta p{
+  color:var(--muted);
+
+  line-height:1.9;
+
+  max-width:700px;
+
+  margin:auto auto 35px;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-padding:70px 7%;
-border-top:1px solid var(--border);
-background:#030303;
-text-align:center;
+  padding:70px 7%;
+
+  border-top:1px solid var(--border);
+
+  text-align:center;
+
+  background:#030303;
 }
 
 footer p{
-color:#666;
-line-height:1.8;
+  color:#666;
+  line-height:1.9;
+  margin-top:20px;
 }
 
-/* responsive */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
 
-.nav-links{
-display:none;
-}
+  .nav-links{
+    display:none;
+  }
 
-.hero h1{
-font-size:48px;
-}
+  .hero h1{
+    font-size:52px;
+  }
 
-.hero p{
-font-size:16px;
-}
+  .hero p{
+    font-size:16px;
+  }
 
-section{
-padding:90px 5%;
-}
+  section{
+    padding:90px 5%;
+  }
+
+  .section-title h2{
+    font-size:34px;
+  }
 
 }
 
@@ -303,280 +434,331 @@ padding:90px 5%;
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <nav>
 
-<div class="logo">QUAVRON</div>
+  <div class="logo">QUAVRON</div>
 
-<div class="nav-links">
-<a href="#about">حول</a>
-<a href="#services">الخدمات</a>
-<a href="#rnd">R&D</a>
-<a href="#stats">الإحصائيات</a>
-<a href="#contact">تواصل</a>
-</div>
+  <div class="nav-links">
+    <a href="#about">حول الشركة</a>
+    <a href="#services">الخدمات</a>
+    <a href="#rnd">R&D</a>
+    <a href="#stats">الإحصائيات</a>
+    <a href="#contact">تواصل</a>
+  </div>
 
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
-<div class="hero-content">
+  <div class="hero-content">
 
-<h1>ENGINEERING THE FUTURE</h1>
+    <div class="hero-badge">
+      QUAVRON SARL • Engineering The Future
+    </div>
 
-<p>
-شركة QUAVRON SARL هي شركة جزائرية ناشئة متخصصة في الهندسة والابتكار التكنولوجي،
-تجمع بين الحلول الرقمية، البحث والتطوير، والخدمات التقنية الحديثة.
-</p>
+    <h1>
+      مستقبل التكنولوجيا والهندسة يبدأ من هنا
+    </h1>
 
-<div class="hero-buttons">
+    <p>
+      QUAVRON SARL شركة جزائرية ناشئة متخصصة في
+      الهندسة، الابتكار التكنولوجي، البحث والتطوير،
+      الحلول الرقمية، والخدمات التقنية الحديثة،
+      بهدف بناء منظومة مستقبلية متكاملة داخل الجزائر.
+    </p>
 
-<a href="#services" class="btn btn-primary">
-استكشف الخدمات
-</a>
+    <div class="hero-buttons">
 
-<a href="#contact" class="btn btn-secondary">
-تواصل معنا
-</a>
+      <a href="#services" class="btn btn-primary">
+        استكشف الخدمات
+      </a>
 
-</div>
+      <a href="#contact" class="btn btn-secondary">
+        تواصل معنا
+      </a>
 
-</div>
+    </div>
+
+  </div>
 
 </section>
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-<div class="section-title">
-<h2>من نحن</h2>
+  <div class="section-title">
 
-<p>
-QUAVRON SARL شركة تقنية وهندسية تهدف إلى بناء منظومة مستقبلية
-في الجزائر تجمع بين التكنولوجيا، الإدارة، والهندسة الحديثة.
-</p>
-</div>
+    <h2>من نحن</h2>
 
-<div class="grid">
+    <p>
+      QUAVRON SARL تجمع بين التكنولوجيا،
+      الهندسة، والإدارة الحديثة لتقديم خدمات
+      احترافية قابلة للنمو والتوسع.
+    </p>
 
-<div class="card">
-<h3>الرؤية</h3>
-<p>
-بناء شركة تكنولوجية جزائرية قادرة على المنافسة في مجالات البحث والتطوير.
-</p>
-</div>
+  </div>
 
-<div class="card">
-<h3>الهدف</h3>
-<p>
-تقديم حلول تقنية وهندسية ذكية للشركات والأفراد.
-</p>
-</div>
+  <div class="grid">
 
-<div class="card">
-<h3>الابتكار</h3>
-<p>
-دمج التكنولوجيا مع الخدمات الإدارية لتقديم نموذج عمل حديث وقابل للنمو.
-</p>
-</div>
+    <div class="card">
 
-</div>
+      <div class="card-icon">⚡</div>
+
+      <h3>الرؤية</h3>
+
+      <p>
+        بناء شركة تكنولوجية جزائرية قادرة على
+        المنافسة في مجالات الابتكار والهندسة.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="card-icon">🧠</div>
+
+      <h3>الابتكار</h3>
+
+      <p>
+        تطوير حلول حديثة تجمع بين
+        التقنية والخدمات الذكية.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="card-icon">🚀</div>
+
+      <h3>الهدف</h3>
+
+      <p>
+        تقديم خدمات رقمية وهندسية
+        احترافية للأفراد والمؤسسات.
+      </p>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- SERVICES -->
+<!-- ================= SERVICES ================= -->
 
 <section id="services">
 
-<div class="section-title">
-<h2>الخدمات</h2>
+  <div class="section-title">
 
-<p>
-مجموعة خدمات احترافية تجمع بين التقنية والهندسة والإدارة.
-</p>
-</div>
+    <h2>الخدمات</h2>
 
-<div class="grid">
+    <p>
+      خدمات احترافية متعددة تجمع بين
+      الإدارة، التقنية، والهندسة الحديثة.
+    </p>
 
-<div class="card">
-<h3>الخدمات الإدارية</h3>
-<p>
-كاتب عمومي، ملفات إدارية، مساعدات رقمية وخدمات مؤسسات.
-</p>
-</div>
+  </div>
 
-<div class="card">
-<h3>الحلول الرقمية</h3>
-<p>
-تطوير مواقع، أنظمة رقمية، برمجيات وحلول ذكية.
-</p>
-</div>
+  <div class="grid">
 
-<div class="card">
-<h3>الأمن السيبراني</h3>
-<p>
-حماية المعلومات والأنظمة وتقديم حلول أمنية متقدمة.
-</p>
-</div>
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <h3>الخدمات الإدارية</h3>
+      <p>
+        كاتب عمومي، ملفات إدارية،
+        مساعدات رقمية وخدمات مؤسسات.
+      </p>
+    </div>
 
-<div class="card">
-<h3>الهندسة والدراسات</h3>
-<p>
-استشارات تقنية، دراسات جدوى، وتحليل مشاريع.
-</p>
-</div>
+    <div class="card">
+      <div class="card-icon">💻</div>
+      <h3>الحلول الرقمية</h3>
+      <p>
+        تطوير مواقع إلكترونية،
+        أنظمة ذكية، وبرمجيات حديثة.
+      </p>
+    </div>
 
-<div class="card">
-<h3>التعليم والتدريب</h3>
-<p>
-تدريب تقني وتعليم لغات ومهارات رقمية.
-</p>
-</div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>الأمن السيبراني</h3>
+      <p>
+        حماية الأنظمة والمعلومات
+        وتقديم حلول أمنية متقدمة.
+      </p>
+    </div>
 
-<div class="card">
-<h3>البحث والتطوير</h3>
-<p>
-تصميم أفكار مستقبلية ونماذج أولية وأنظمة مبتكرة.
-</p>
-</div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>الدراسات والاستشارات</h3>
+      <p>
+        دراسات جدوى،
+        تحاليل مشاريع،
+        واستشارات تقنية.
+      </p>
+    </div>
 
-</div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>التعليم والتدريب</h3>
+      <p>
+        تعليم لغات،
+        تدريب رقمي،
+        ومهارات تقنية حديثة.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🔬</div>
+      <h3>البحث والتطوير</h3>
+      <p>
+        تطوير أفكار مستقبلية
+        وأنظمة تقنية مبتكرة.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
-<!-- R&D -->
+<!-- ================= R&D ================= -->
 
 <section id="rnd">
 
-<div class="section-title">
+  <div class="section-title">
 
-<h2>قسم البحث والتطوير</h2>
+    <h2>قسم البحث والتطوير</h2>
 
-<p>
-نعمل على تطوير تقنيات مستقبلية تشمل الأنظمة الذكية والمحركات الكهربائية والحلول الرقمية.
-</p>
+    <p>
+      نعمل على تطوير تقنيات مستقبلية
+      تشمل الأنظمة الذكية،
+      الحلول الرقمية،
+      والمحركات الكهربائية.
+    </p>
 
-</div>
+  </div>
 
-<div class="grid">
+  <div class="grid">
 
-<div class="card">
-<h3>أنظمة ذكية</h3>
-<p>
-حلول مستقبلية تعتمد على الأتمتة والذكاء الرقمي.
-</p>
-</div>
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>أنظمة ذكية</h3>
+      <p>
+        حلول تعتمد على
+        الأتمتة والتكنولوجيا الحديثة.
+      </p>
+    </div>
 
-<div class="card">
-<h3>محركات وتقنيات</h3>
-<p>
-أبحاث هندسية لتطوير أنظمة ومحركات حديثة.
-</p>
-</div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h3>محركات وتقنيات</h3>
+      <p>
+        أبحاث هندسية
+        لتطوير أنظمة متقدمة.
+      </p>
+    </div>
 
-<div class="card">
-<h3>ابتكار تقني</h3>
-<p>
-تطوير أفكار تقنية قابلة للتحول إلى مشاريع حقيقية.
-</p>
-</div>
+    <div class="card">
+      <div class="card-icon">💡</div>
+      <h3>ابتكار مستقبلي</h3>
+      <p>
+        تحويل الأفكار التقنية
+        إلى مشاريع قابلة للتطبيق.
+      </p>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 
 <section id="stats">
 
-<div class="section-title">
+  <div class="section-title">
 
-<h2>المؤشرات</h2>
+    <h2>المؤشرات</h2>
 
-<p>
-نمو تدريجي واستراتيجية قابلة للتوسع.
-</p>
+    <p>
+      استراتيجية نمو تدريجية
+      قابلة للتوسع والتطوير.
+    </p>
 
-</div>
+  </div>
 
-<div class="stats">
+  <div class="stats">
 
-<div class="stat-box">
-<h3>155K</h3>
-<p>دج إيرادات شهرية</p>
-</div>
+    <div class="stat-box">
+      <h3>155K</h3>
+      <p>دج إيرادات شهرية</p>
+    </div>
 
-<div class="stat-box">
-<h3>128K</h3>
-<p>دج أرباح متوقعة</p>
-</div>
+    <div class="stat-box">
+      <h3>128K</h3>
+      <p>دج أرباح متوقعة</p>
+    </div>
 
-<div class="stat-box">
-<h3>5+</h3>
-<p>مجالات تقنية</p>
-</div>
+    <div class="stat-box">
+      <h3>5+</h3>
+      <p>مجالات تقنية</p>
+    </div>
 
-<div class="stat-box">
-<h3>2026</h3>
-<p>بداية الانطلاق</p>
-</div>
+    <div class="stat-box">
+      <h3>2026</h3>
+      <p>بداية الانطلاق</p>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-<div class="section-title">
+  <div class="cta">
 
-<h2>تواصل معنا</h2>
+    <h2>ابدأ رحلتك مع QUAVRON</h2>
 
-<p>
-جاهزون للعمل مع الأفراد والشركات والمؤسسات.
-</p>
+    <p>
+      جاهزون للعمل مع الأفراد،
+      الشركات، والمؤسسات
+      لبناء حلول تقنية وهندسية حديثة.
+    </p>
 
-</div>
+    <div class="hero-buttons">
 
-<div class="grid">
+      <a href="#" class="btn btn-primary">
+        تواصل معنا
+      </a>
 
-<div class="card">
-<h3>البريد الإلكتروني</h3>
-<p>contact@quavron.com</p>
-</div>
+      <a href="#" class="btn btn-secondary">
+        اكتشف المزيد
+      </a>
 
-<div class="card">
-<h3>الهاتف</h3>
-<p>+213 XXX XX XX XX</p>
-</div>
+    </div>
 
-<div class="card">
-<h3>الموقع</h3>
-<p>الجزائر</p>
-</div>
-
-</div>
+  </div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<div class="logo" style="margin-bottom:20px;">
-QUAVRON
-</div>
+  <div class="logo">
+    QUAVRON
+  </div>
 
-<p>
-QUAVRON SARL © 2026
-<br>
-Engineering The Future
-</p>
+  <p>
+    QUAVRON SARL © 2026
+    <br>
+    Engineering The Future
+  </p>
 
 </footer>
 
