@@ -4,245 +4,581 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUAVRON | Future Ecosystem</title>
+
+<title>QUAVRON SARL | Engineering The Future</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg:#050505;
-  --panel:#0d0d12;
-  --text:#fff;
-  --muted:#9aa4b2;
-  --cyan:#00f0ff;
-  --purple:#7000ff;
-  --border:rgba(255,255,255,0.08);
+
+:root{
+--bg:#050505;
+--panel:#0f1117;
+--cyan:#00e5ff;
+--purple:#6d28ff;
+--text:#ffffff;
+--muted:#94a3b8;
+--border:rgba(255,255,255,0.07);
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
-  font-family:Cairo,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
+font-family:'Cairo',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
 }
 
-/* NAV */
+/* الخلفية */
+
+body::before{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:rgba(0,229,255,0.06);
+filter:blur(120px);
+top:-200px;
+left:-200px;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:rgba(109,40,255,0.08);
+filter:blur(120px);
+bottom:-250px;
+right:-250px;
+z-index:-1;
+}
+
+/* NAVBAR */
+
 nav{
-  position:fixed;top:0;width:100%;
-  display:flex;justify-content:space-between;
-  padding:18px 6%;
-  background:rgba(10,10,14,0.7);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
-  z-index:999;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 7%;
+background:rgba(10,10,14,0.75);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--border);
+z-index:9999;
 }
+
 .logo{
-  font-family:Orbitron;
-  font-weight:900;
-  color:var(--cyan);
+font-family:'Orbitron',sans-serif;
+font-size:24px;
+font-weight:900;
+background:linear-gradient(90deg,#fff,var(--cyan));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
-nav a{
-  color:var(--muted);
-  margin:0 10px;
-  text-decoration:none;
+
+.nav-links{
+display:flex;
+gap:24px;
 }
-nav a:hover{color:#fff}
+
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+transition:0.3s;
+font-size:14px;
+}
+
+.nav-links a:hover{
+color:#fff;
+}
 
 /* HERO */
+
 .hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 20px 80px;
+position:relative;
 }
+
+.hero-content{
+max-width:900px;
+}
+
 .hero h1{
-  font-size:60px;
-  background:linear-gradient(180deg,#fff,#a5b4fc);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+font-family:'Orbitron',sans-serif;
+font-size:clamp(40px,7vw,88px);
+font-weight:900;
+line-height:1.1;
+margin-bottom:25px;
+
+background:linear-gradient(180deg,#fff,#7dd3fc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
+
 .hero p{
-  color:var(--muted);
-  max-width:600px;
-  margin-top:15px;
+color:var(--muted);
+font-size:20px;
+line-height:1.9;
+margin-bottom:40px;
 }
-.btns{margin-top:25px}
-button{
-  padding:12px 25px;
-  border-radius:30px;
-  border:none;
-  margin:5px;
-  cursor:pointer;
-}
-.primary{background:#fff;color:#000}
-.secondary{background:transparent;color:#fff;border:1px solid #333}
 
-/* SECTIONS */
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 32px;
+border-radius:60px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+}
+
+.btn-primary{
+background:#fff;
+color:#000;
+}
+
+.btn-primary:hover{
+background:var(--cyan);
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,0.15);
+color:#fff;
+}
+
+.btn-secondary:hover{
+border-color:var(--cyan);
+background:rgba(255,255,255,0.03);
+}
+
+/* sections */
+
 section{
-  padding:100px 6%;
-}
-.title{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:40px;
+padding:120px 7%;
 }
 
-/* GRID */
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.section-title p{
+color:var(--muted);
+max-width:700px;
+margin:auto;
+line-height:1.8;
+}
+
+/* cards */
+
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
+
 .card{
-  background:var(--panel);
-  padding:25px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  transition:.3s;
+background:var(--panel);
+padding:35px;
+border-radius:24px;
+border:1px solid var(--border);
+transition:0.4s;
 }
+
 .card:hover{
-  transform:translateY(-6px);
-  border-color:var(--cyan);
+transform:translateY(-8px);
+border-color:rgba(0,229,255,0.3);
 }
 
-/* STORE */
-.product{
-  background:#0b0b10;
-  padding:20px;
-  border-radius:16px;
-  border:1px solid var(--border);
-}
-.product h3{margin-bottom:10px}
-
-/* MEDIA UPLOAD */
-.upload{
-  border:2px dashed #333;
-  padding:40px;
-  text-align:center;
-  cursor:pointer;
-}
-.upload:hover{border-color:var(--cyan)}
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-  margin-top:20px;
-}
-.gallery img{
-  width:100%;
-  border-radius:10px;
+.card h3{
+margin-bottom:15px;
+font-size:22px;
 }
 
-/* FOOTER */
+.card p{
+color:var(--muted);
+line-height:1.8;
+}
+
+/* stats */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.stat-box{
+background:var(--panel);
+padding:40px;
+border-radius:24px;
+border:1px solid var(--border);
+}
+
+.stat-box h3{
+font-size:48px;
+font-family:'Orbitron',sans-serif;
+color:var(--cyan);
+margin-bottom:10px;
+}
+
+.stat-box p{
+color:var(--muted);
+}
+
+/* footer */
+
 footer{
-  text-align:center;
-  padding:40px;
-  border-top:1px solid var(--border);
-  color:var(--muted);
+padding:70px 7%;
+border-top:1px solid var(--border);
+background:#030303;
+text-align:center;
 }
 
-/* ANIMATION */
-.scroll{
-  opacity:0;
-  transform:translateY(30px);
-  transition:1s;
+footer p{
+color:#666;
+line-height:1.8;
 }
-.scroll.active{
-  opacity:1;
-  transform:translateY(0);
+
+/* responsive */
+
+@media(max-width:768px){
+
+.nav-links{
+display:none;
 }
+
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+section{
+padding:90px 5%;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
-  <div class="logo">QUAVRON</div>
-  <div>
-    <a href="#home">الرئيسية</a>
-    <a href="#features">الميزات</a>
-    <a href="#store">المتجر</a>
-    <a href="#media">الميديا</a>
-  </div>
+
+<div class="logo">QUAVRON</div>
+
+<div class="nav-links">
+<a href="#about">حول</a>
+<a href="#services">الخدمات</a>
+<a href="#rnd">R&D</a>
+<a href="#stats">الإحصائيات</a>
+<a href="#contact">تواصل</a>
+</div>
+
 </nav>
 
-<section class="hero" id="home">
-  <h1>QUAVRON FUTURE</h1>
-  <p>منصة تقنية مستقبلية تجمع الذكاء الاصطناعي والتجارة الرقمية في نظام واحد</p>
-  <div class="btns">
-    <button class="primary">ابدأ الآن</button>
-    <button class="secondary">استكشف</button>
-  </div>
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>ENGINEERING THE FUTURE</h1>
+
+<p>
+شركة QUAVRON SARL هي شركة جزائرية ناشئة متخصصة في الهندسة والابتكار التكنولوجي،
+تجمع بين الحلول الرقمية، البحث والتطوير، والخدمات التقنية الحديثة.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#services" class="btn btn-primary">
+استكشف الخدمات
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+تواصل معنا
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="features">
-  <h2 class="title scroll">المميزات</h2>
-  <div class="grid">
-    <div class="card scroll">ذكاء اصطناعي متقدم</div>
-    <div class="card scroll">نظام سحابي آمن</div>
-    <div class="card scroll">تجارة إلكترونية حديثة</div>
-  </div>
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-title">
+<h2>من نحن</h2>
+
+<p>
+QUAVRON SARL شركة تقنية وهندسية تهدف إلى بناء منظومة مستقبلية
+في الجزائر تجمع بين التكنولوجيا، الإدارة، والهندسة الحديثة.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>الرؤية</h3>
+<p>
+بناء شركة تكنولوجية جزائرية قادرة على المنافسة في مجالات البحث والتطوير.
+</p>
+</div>
+
+<div class="card">
+<h3>الهدف</h3>
+<p>
+تقديم حلول تقنية وهندسية ذكية للشركات والأفراد.
+</p>
+</div>
+
+<div class="card">
+<h3>الابتكار</h3>
+<p>
+دمج التكنولوجيا مع الخدمات الإدارية لتقديم نموذج عمل حديث وقابل للنمو.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="store">
-  <h2 class="title scroll">المتجر</h2>
-  <div class="grid">
-    <div class="product scroll">
-      <h3>QUAVRON ONE</h3>
-      <p>جهاز ذكي متقدم للتحكم</p>
-    </div>
-    <div class="product scroll">
-      <h3>QUANTUM CORE</h3>
-      <p>معالج ذكي عالي الأداء</p>
-    </div>
-  </div>
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="section-title">
+<h2>الخدمات</h2>
+
+<p>
+مجموعة خدمات احترافية تجمع بين التقنية والهندسة والإدارة.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>الخدمات الإدارية</h3>
+<p>
+كاتب عمومي، ملفات إدارية، مساعدات رقمية وخدمات مؤسسات.
+</p>
+</div>
+
+<div class="card">
+<h3>الحلول الرقمية</h3>
+<p>
+تطوير مواقع، أنظمة رقمية، برمجيات وحلول ذكية.
+</p>
+</div>
+
+<div class="card">
+<h3>الأمن السيبراني</h3>
+<p>
+حماية المعلومات والأنظمة وتقديم حلول أمنية متقدمة.
+</p>
+</div>
+
+<div class="card">
+<h3>الهندسة والدراسات</h3>
+<p>
+استشارات تقنية، دراسات جدوى، وتحليل مشاريع.
+</p>
+</div>
+
+<div class="card">
+<h3>التعليم والتدريب</h3>
+<p>
+تدريب تقني وتعليم لغات ومهارات رقمية.
+</p>
+</div>
+
+<div class="card">
+<h3>البحث والتطوير</h3>
+<p>
+تصميم أفكار مستقبلية ونماذج أولية وأنظمة مبتكرة.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="media">
-  <h2 class="title scroll">الميديا</h2>
+<!-- R&D -->
 
-  <label class="upload scroll">
-    اضغط لرفع الصور
-    <input type="file" multiple accept="image/*" onchange="load(event)" hidden>
-  </label>
+<section id="rnd">
 
-  <div class="gallery" id="gallery"></div>
+<div class="section-title">
+
+<h2>قسم البحث والتطوير</h2>
+
+<p>
+نعمل على تطوير تقنيات مستقبلية تشمل الأنظمة الذكية والمحركات الكهربائية والحلول الرقمية.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>أنظمة ذكية</h3>
+<p>
+حلول مستقبلية تعتمد على الأتمتة والذكاء الرقمي.
+</p>
+</div>
+
+<div class="card">
+<h3>محركات وتقنيات</h3>
+<p>
+أبحاث هندسية لتطوير أنظمة ومحركات حديثة.
+</p>
+</div>
+
+<div class="card">
+<h3>ابتكار تقني</h3>
+<p>
+تطوير أفكار تقنية قابلة للتحول إلى مشاريع حقيقية.
+</p>
+</div>
+
+</div>
+
 </section>
+
+<!-- STATS -->
+
+<section id="stats">
+
+<div class="section-title">
+
+<h2>المؤشرات</h2>
+
+<p>
+نمو تدريجي واستراتيجية قابلة للتوسع.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3>155K</h3>
+<p>دج إيرادات شهرية</p>
+</div>
+
+<div class="stat-box">
+<h3>128K</h3>
+<p>دج أرباح متوقعة</p>
+</div>
+
+<div class="stat-box">
+<h3>5+</h3>
+<p>مجالات تقنية</p>
+</div>
+
+<div class="stat-box">
+<h3>2026</h3>
+<p>بداية الانطلاق</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="section-title">
+
+<h2>تواصل معنا</h2>
+
+<p>
+جاهزون للعمل مع الأفراد والشركات والمؤسسات.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>البريد الإلكتروني</h3>
+<p>contact@quavron.com</p>
+</div>
+
+<div class="card">
+<h3>الهاتف</h3>
+<p>+213 XXX XX XX XX</p>
+</div>
+
+<div class="card">
+<h3>الموقع</h3>
+<p>الجزائر</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-© 2026 QUAVRON PLATFORM
+
+<div class="logo" style="margin-bottom:20px;">
+QUAVRON
+</div>
+
+<p>
+QUAVRON SARL © 2026
+<br>
+Engineering The Future
+</p>
+
 </footer>
-
-<script>
-function load(event){
-  const gallery=document.getElementById("gallery");
-  for(let file of event.target.files){
-    const reader=new FileReader();
-    reader.onload=e=>{
-      const img=document.createElement("img");
-      img.src=e.target.result;
-      gallery.appendChild(img);
-    }
-    reader.readAsDataURL(file);
-  }
-}
-
-/* scroll animation */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add("active");
-  });
-});
-
-document.querySelectorAll(".scroll").forEach(el=>obs.observe(el));
-</script>
 
 </body>
 </html>
